@@ -15,6 +15,7 @@ session_start();
 
   <!--Calendar Dates-->
   <script src="calendar.min.js"></script>
+ 
 </head>
 <body>
 
@@ -125,13 +126,25 @@ session_start();
 </ul>
 
 <script src="ui.js" type="text/javascript"></script>
-<<<<<<< HEAD:calendar.php
 <script src="calendar.min.js" type="text/javascript"></script>
-<form action = createsEvents.php>
-  <input type = 'submit'> 
-</form>
-=======
+<script src="createEvent.js" type="text/javascript"></script>
 
->>>>>>> 4fafaf6f0de7f19a2479d62f28072bec80514cd7:calendar.html
+<script>
+function makeNewEvent(){
+  let date = document.getElementById("date").value;
+  let time = document.getElementById("time").value;
+  let title = document.getElementById("title").value;
+  let desc = document.getElementById("description").value;
+  let tags = document.getElementById("tags").value;
+  createEvent(date,time,title,desc,tags);
+}
+document.getElementById("test").addEventListener("click",makeNewEvent,false);
+</script>
+  <input type = 'date' name = 'date' id='date'> date <br>
+  <input type = 'time' name = 'time' id='time'> time <br>
+  <input type = 'text' name = 'title' id='title'> title <br>
+  <input type = 'text' name = 'description' id='description'> description <br>
+  <input type = 'text' name = 'tags' id ='tags'> tags <br>
+  <input type = 'Create New Event' id='test'>
 </body>
 </html>
