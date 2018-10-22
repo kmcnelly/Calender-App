@@ -1,22 +1,15 @@
-<!-- <!DOCTYPE html>
-<html lang = "en">
-<head>
-    <title>News</title>
-</head>
-<body> -->
-    <?php
-    require "requireDatabase5.php";
+<?php
     session_start();
-    
+    require "requireDatabase5.php";
     $username = (String) $_POST['user'];
     $password = (String) $_POST['pass'];
     $valid = false; #if valid is false at the end of the file, then an incorrect or no username was entered
     
     $stmt = $mysqli->prepare("select username, password from users");
-    // if(!$stmt){
-    //     printf("Query Prep Failed: %s\n", $mysqli->error);
-    //     exit;
-    // }
+    if(!$stmt){
+        printf("Query Prep Failed: %s\n", $mysqli->error);
+        exit;
+    }
     
     $stmt->execute();
 
