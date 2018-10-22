@@ -26,7 +26,7 @@
         $_SESSION['username'] = $username; #stores the username until the user logs out
         $_SESSION['token'] = bin2hex(openssl_random_pseudo_bytes(32));
         // echo 'success';
-        header("location: calendar.html");
+        header("location: calendar.php");
         exit;
     }
 

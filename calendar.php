@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -119,5 +122,8 @@
 
 <script src="ui.js" type="text/javascript"></script>
 <script src="calendar.min.js" type="text/javascript"></script>
+<form action = createsEvents.php>
+  <input type = 'submit'> 
+</form>
 </body>
 </html>
