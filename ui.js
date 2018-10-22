@@ -1,41 +1,58 @@
+/*****************************************************************************
+Alex Chow and Kenneth McNelly
 
-// // For our purposes, we can keep the current month in a variable in the global scope
-// var currentMonth = new Month(2018, 10); // October 2017
-
-// // Change the month when the "next" button is pressed
-// document.getElementById("next_month_btn").addEventListener("click", function(event){
-// 	currentMonth = currentMonth.nextMonth(); // Previous month would be currentMonth.prevMonth()
-// 	updateCalendar(); // Whenever the month is updated, we'll need to re-render the calendar in HTML
-// 	alert("The new month is "+currentMonth.month+" "+currentMonth.year);
-// }, false);
+Code implements Month class created on the website
+******************************************************************************/
 
 
-// // This updateCalendar() function only alerts the dates in the currently specified month.  You need to write
-// // it to modify the DOM (optionally using jQuery) to display the days and weeks in the current month.
-// function updateCalendar(){
-// 	var weeks = currentMonth.getWeeks();
+let months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+
+let currentMonth = new Month(2018, 9); // October 2017
+
+
+// This updateCalendar() function only alerts the dates in the currently specified month.  You need to write
+// it to modify the DOM (optionally using jQuery) to display the days and weeks in the current month.
+function updateCalendar(){
+	//update top of calendar
+	document.getElementById("curMonth").innerHTML = months[currentMonth.month];
+	document.getElementById("curYear").innerHTML = currentMonth.year;
+
+	var weeks = currentMonth.getWeeks();
 	
-// 	for(var w in weeks){
-// 		var days = weeks[w].getDates();
-// 		// days contains normal JavaScript Date objects.
+	for(var w in weeks){
+		var days = weeks[w].getDates();
+		// days contains normal JavaScript Date objects.
 		
-// 		alert("Week starting on "+days[0]);
+		alert("Week starting on "+days[0]);
 		
-// 		for(var d in days){
-// 			// You can see console.log() output in your JavaScript debugging tool, like Firebug,
-// 			// WebWit Inspector, or Dragonfly.
-// 			console.log(days[d].toISOString());
-// 		}
-// 	}
-// }
+		for(var d in days){
+			// You can see console.log() output in your JavaScript debugging tool, like Firebug,
+			// WebWit Inspector, or Dragonfly.
+			console.log(days[d].toISOString());
+		}
+	}
+}
 
 
 function getCurDay(){
-
 	d = new Date();
-
 	document.getElementById("curDate").innerHTML = d ;
 }
+
+//change current month to Prev month
+function getPrevMonth(){
+	currentMonth = currentMonth.prevMonth();
+	updateCalendar();
+	alert("The new month is "+currentMonth.month+" "+currentMonth.year);
+}
+
+//change current month to next month
+function getNextMonth(){
+	currentMonth = currentMonth.nextMonth();
+	updateCalendar(); 
+	alert("The new month is "+currentMonth.month+" "+currentMonth.year);
+}
+
 
 function selected(){
     alert("do stuff");
@@ -47,10 +64,10 @@ $('#date').datepicker({});
 
 //change month
 $("#prev").click(function(){
-    alert("previous month");
+    getPrevMonth();
 });
 $("#next").click(function(){
-    alert("next month");
+	getNextMonth();
 });
 
 //select Date =====================================================================================================

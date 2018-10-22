@@ -26,20 +26,21 @@ session_start();
     <li class="prev"><span id="prev">&#10094;</span></li>
     <li class="next" id="next">&#10095;</li>
     <li>
-      August<br>
-      <span style="font-size:18px">2017</span>
+      <span id="curMonth">October</span>
+      <br>
+      <span style="font-size:18px" id="curYear">2018</span>
     </li>
   </ul>
 </div>
 
 <ul class="weekdays">
-  <li>Mo</li>
-  <li>Tu</li>
-  <li>We</li>
-  <li>Th</li>
-  <li>Fr</li>
-  <li>Sa</li>
-  <li>Su</li>
+  <li>Sun</li>
+  <li>Mon</li>
+  <li>Tues</li>
+  <li>Wed</li>
+  <li>Thur</li>
+  <li>Fri</li>
+  <li>Sat</li>
 </ul>
 
 <ul class="days">  
@@ -85,7 +86,7 @@ session_start();
 
   <li id= "19"><span>19</span></li>
 
-  <li id= "20"><span>20*</span></li>
+  <li id= "20"><span>20<!--<span class="event">*</span>--></span></li>
 
   <li id= "21"><span>21</span></li>
 
