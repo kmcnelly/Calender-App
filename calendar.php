@@ -167,25 +167,26 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
 <div class="window-popup" >
   <div class="wp-content">
     <form id='creation'>
-      Date: <input type = 'date' name = 'date' id='date' value='2018-10-22' required> <br>
-      Time: <input type = 'time' name = 'time' id='time' required> <br> <br>
+      Date: <input type = 'date' name = 'date' id='eventDate' value='2018-10-22' required> <br>
+      Time: <input type = 'time' name = 'time' id='eventTime' required> <br> <br>
       Title: <input type = 'text' name = 'title' id='eventTitle' required> <br>
       Description: <input type = 'text' name = 'description' id='eventDescription'> <br>
       Tags: <input type = 'text' name = 'tags' id ='tags'> <br> <br>
-      <input type = 'submit'class='button' value = 'Create New Event' id='test'>
+      <input type = 'submit' class='button' value = 'Create New Event' id='test'>
     </form>
 
     <button class="wp-content-button" id="button-popup-close">Close</button>
     <script>
-function makeNewEvent(){
-  let date = document.getElementById("date").value;
-  let time = document.getElementById("time").value;
-  let title = document.getElementById("title").value;
+function makeNewEvent(event){
+  let date = document.getElementById("eventDate").value;
+  let time = document.getElementById("eventTime").value;
+  let title = document.getElementById("eventTitle").value;
   let desc = document.getElementById("description").value;
   let tags = document.getElementById("tags").value;
-  createEvent(date,time,title,desc,tags);
+  alert(date);
+  // createEvent(date,time,title,desc,tags);
 }
-document.getElementById('creation').addEventListener("submit",makeNewEvent,false);
+document.getElementById("test").addEventListener('click',makeNewEvent);
 </script>
    </div> 
 </div>
@@ -203,7 +204,7 @@ function makeNewEvent(){
   let tags = document.getElementById("tags").value;
   createEvent(date,time,title,desc,tags);
 }
-document.getElementById('creation').addEventListener("submit",makeNewEvent,false);
+document.getElementById('creation').addEventListener("click",makeNewEvent,false);
 </script>
 </body>
 </html>
