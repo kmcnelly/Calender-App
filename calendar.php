@@ -21,6 +21,19 @@ session_start();
 
 <p>Today's Date: <span id=curDate></span></p>
 <input id="date" type="text" size="8" />
+<p id = 'currentuser'></p>
+<script type="text/javascript" >
+function writeUser(){
+  let username = <?php echo json_encode($_SESSION['username']); ?>;
+  let newthing = "Welcome, " + username; 
+  document.getElementById('currentuser').innerHTML = newthing;
+}
+  document.addEventListener("DOMContentLoaded", writeUser, false);
+</script>
+<form action = "accountInfo.php">
+<input type = 'submit' id = 'info' value = 'My Account'>
+</form>
+<input type = 'submit' id = 'logout' value = 'Logout'>
 
 <div class="month">      
   <ul>

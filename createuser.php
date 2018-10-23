@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html lang = "en">
-<head>
-    <title>Create User</title>
-</head>
-<body>
-    <?php
+<?php
+        session_start();
         require 'requireDatabase5.php';
 
         $username = (String) $_POST['user'];
@@ -24,8 +19,9 @@
         $stmt->execute();
         
         $stmt->close();
+        $_SESSION['username'] = $username;
+        $_SESSION['id'] = $id; #stores the username until the user logs out
+        $_SESSION['token'] = bin2hex(openssl_random_pseudo_bytes(32));
         
-        header('calendar.html')
+        header('location: calendar.php')
     ?>
-</body>
-</html>

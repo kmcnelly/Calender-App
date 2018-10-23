@@ -23,6 +23,7 @@
     }
     
     if ($valid){
+        $_SESSION['username'] = $username;
         $_SESSION['id'] = $id; #stores the username until the user logs out
         $_SESSION['token'] = bin2hex(openssl_random_pseudo_bytes(32));
         // echo 'success';
