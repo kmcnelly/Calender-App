@@ -175,7 +175,7 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
       <input type = 'submit'class='button' value = 'Create New Event' id='test'>
     </form>
 
-    <a href="#" class="button" id="button-popup-close">Close</a>
+    <button class="wp-content-button" id="button-popup-close">Close</button>
 
    </div> 
 </div>
