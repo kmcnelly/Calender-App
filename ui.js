@@ -91,7 +91,7 @@ function getNextMonth(){
 
 //pre sets date value to selected date
 function selected(id){
-    $(".window-popup").fadeIn(500);
+    $(".window-popup").fadeIn(10000);
 
 	let date = document.getElementById(id).value;
     document.getElementById("eventDate").value = date;
