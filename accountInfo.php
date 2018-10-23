@@ -8,9 +8,12 @@ session_start()
 </head>
 <body>
 <p id='currentuser'></p>
+<form action="calendar.php">
+        <input type="submit" class = button value="Return to my calendar">
+    </form>
 <input type = "submit" id = "events" value = "See a list of my events">
 <input type = "submit" id = "pwd" value = "Change password">
-<input type = "submit" id = "delete" value = "Delete My Account">
+<input type = "submit" id = "delete" value = "Delete my account">
 <p id='feedback'></p>
 <script>
 function writeUser(){

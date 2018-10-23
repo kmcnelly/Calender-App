@@ -18,8 +18,8 @@
     }
     ?>
     <br>
-    <form action="login.php">
-        <input type="submit" class = button value="Return to login">
+    <form action="calendar.php">
+        <input type="submit" class = button value="Return to home">
     </form>
 </body>
 </html>

@@ -29,7 +29,7 @@ function writeUser(){
     document.getElementById("acct").innerHTML = "Have an account? Login below:";
     document.getElementById("guest").innerHTML = "<form action = 'loggingIn.php' method = 'POST'> Username: <input type='text' name='user'> <br> Password: <input type='password' name='pass'> <br><input type = 'submit' id = 'info' value = 'Log In'> </form>";
     document.getElementById("creation").innerHTML = "New here? Make an account";
-    document.getElementById("new").innerHTML = "<form action ='createuser.php' method = 'POST'> <input type = 'submit' id = 'logout' value = 'Create Account'> </form>";
+    document.getElementById("new").innerHTML = "<form action ='createuser.php' method = 'POST'>Username: <input type='text' name='user'> <br> Password: <input type='password' name='pass'> <br> <input type = 'submit' id = 'info' value = 'Create Account'> </form>";
   }
   else{
   let newthing = "Welcome, " + username; 
@@ -176,7 +176,17 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
     </form>
 
     <a href="#" class="button" id="button-popup-close">Close</a>
-
+    <script>
+function makeNewEvent(){
+  let date = document.getElementById("date").value;
+  let time = document.getElementById("time").value;
+  let title = document.getElementById("title").value;
+  let desc = document.getElementById("description").value;
+  let tags = document.getElementById("tags").value;
+  createEvent(date,time,title,desc,tags);
+}
+document.getElementById('creation').addEventListener("submit",makeNewEvent,false);
+</script>
    </div> 
 </div>
 
@@ -184,8 +194,7 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
 <script src="calendar.min.js" type="text/javascript"></script>
 <script src="createEvent.js" type="text/javascript"></script>
 
-
-  <script>
+<script>
 function makeNewEvent(){
   let date = document.getElementById("date").value;
   let time = document.getElementById("time").value;
