@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang = "en">
 <head>
-    <title>ERROR: Login to News</title>
+    <title>ERROR: Login to Calendar</title>
 </head>
 <body>
     Error: Incorrect username or password entered.

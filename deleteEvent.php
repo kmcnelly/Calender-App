@@ -29,21 +29,6 @@ session_start();
         $stmt->bind_param('i', $_SESSION['id']);
         $stmt->execute();
         $stmt->close();
-        
-        $stmt = $mysqli->prepare("delete from users where id=?");  #delete user
-        if(!$stmt){ # and finally delete the user
-            printf("Query Prep Failed4: %s\n", $mysqli->error);
-            exit;
-        }
-        $stmt->bind_param('i', $_SESSION['id']);
-        $stmt->execute();
-        $stmt->close();
-        session_destroy();
-        header("location: logout.php");
-        exit;
     }
-    else{
-        echo "Sorry, incorrect password";
-    }
-    
-    ?>
+
+?>

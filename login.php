@@ -12,7 +12,7 @@
     
     <br>
     
-    <form action = "createUser.php" method = "POST">
+    <form action = "creatingUser.php" method = "POST">
     <input type="submit" value = "Create New User"> 
 	</form>
     

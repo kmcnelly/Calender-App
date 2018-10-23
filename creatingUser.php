@@ -9,9 +9,9 @@
     	<br>
     	<p>Enter new username here: <input type="text" name = "user"> </p>
     	<p>Enter new password here: <input type="password" name = "password"> </p>
-    	<br>
-    	<p>*Optional. Enter email address: <input type="email" name = "email"></p>
-    	<br>
+    	<!-- <br> -->
+    	<!-- <p>*Optional. Enter email address: <input type="email" name = "email"></p>
+    	<br> -->
     	<input type="submit" value = "Create"> 
 	</form>
 </body>
