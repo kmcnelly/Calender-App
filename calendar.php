@@ -166,14 +166,14 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
 
 <div class="window-popup" >
   <div class="wp-content">
-    <form action="/action_page.php"> <!--can you deal with this -->
-      Date: <input type = 'date' name = 'date' id='eventDate' value='2018-10-22' required> <br>
-      Time: <input type = 'time' name = 'time' id='eventTime' required> <br> <br>
+    <!-- <form action="/action_page.php"> can you deal with this -->
+      Date: <input type = 'date' name = 'date' id='date' value='2018-10-22' required> <br>
+      Time: <input type = 'time' name = 'time' id='time' required> <br> <br>
       Event Title: <input type = 'text' name = 'title' id='eventTitle' required> <br>
       Description:<input type = 'text' name = 'description' id='eventDescription'> <br>
-      Tags?<input type = 'text' name = 'tags' id ='eventTags'> <br> <br>
+      Tags?<input type = 'text' name = 'tags' id ='tags'> <br> <br>
       <input type = 'submit'class='button' value = 'Create New Event' id='test'>
-    </form>
+    <!-- </form> -->
 
     <a href="#" class="button" id="button-popup-close">Close</a>
 
