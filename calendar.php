@@ -166,7 +166,7 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
 
 <div class="window-popup" >
   <div class="wp-content">
-    <form id='creation'>
+    <form action="calendar.php" id='creation'>
       Date: <input type = 'date' name = 'date' id='date' value='2018-10-22' required> <br>
       Time: <input type = 'time' name = 'time' id='time' required> <br> <br>
       Title: <input type = 'text' name = 'title' id='eventTitle' required> <br>
