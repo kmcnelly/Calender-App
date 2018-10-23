@@ -4,6 +4,7 @@ Alex Chow and Kenneth McNelly
 Code implements Month class created on the website
 ******************************************************************************/
 
+const NUM_SLOTS = 42;
 
 let months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 
@@ -13,22 +14,51 @@ let currentMonth = new Month(2018, 9); // October 2017
 // This updateCalendar() function only alerts the dates in the currently specified month.  You need to write
 // it to modify the DOM (optionally using jQuery) to display the days and weeks in the current month.
 function updateCalendar(){
-	//update top of calendar
+	//update Month & Year of calendar
 	document.getElementById("curMonth").innerHTML = months[currentMonth.month];
 	document.getElementById("curYear").innerHTML = currentMonth.year;
 
-	var weeks = currentMonth.getWeeks();
+	let clear = 1;
+	while(clear <= NUM_SLOTS){
+		document.getElementById(clear).innerText = "-";
+		clear += 1;
+	}
+
+	//get the weeks filled with days
+	let weeks = currentMonth.getWeeks();
 	
-	for(var w in weeks){
-		var days = weeks[w].getDates();
+	let counter = 1; //day counter starting at 1
+
+	for(let w in weeks){
+		let days = weeks[w].getDates();
 		// days contains normal JavaScript Date objects.
 		
-		alert("Week starting on "+days[0]);
+		// alert("Week starting on "+days[0]);
 		
-		for(var d in days){
-			// You can see console.log() output in your JavaScript debugging tool, like Firebug,
-			// WebWit Inspector, or Dragonfly.
-			console.log(days[d].toISOString());
+		for(let d in days){
+			const monthRegex = /(?<=-)\d{2}(?=-)/g
+			const dateRegex = /(?!-)\d{2}(?=T)/g
+			//day info from the class
+			let dString = days[d].toISOString();
+
+			//display only days from the that month
+			let monthIn = monthRegex.exec(dString);
+
+			//date
+			let dateIn = dateRegex.exec(dString);
+
+			//get the date of the month
+			if(currentMonth.month == (parseInt(monthIn)-1)){
+				//update days in the month
+				document.getElementById(counter).innerHTML = dateIn;
+				document.getElementById(counter).value = dString;
+			}
+
+			console.log(dString);
+			console.log(currentMonth.month + "==" + (monthIn - 1));
+			console.log(counter + ":" + dateIn);
+
+			counter += 1;
 		}
 	}
 }
@@ -43,19 +73,23 @@ function getCurDay(){
 function getPrevMonth(){
 	currentMonth = currentMonth.prevMonth();
 	updateCalendar();
-	alert("The new month is "+currentMonth.month+" "+currentMonth.year);
+
 }
 
 //change current month to next month
 function getNextMonth(){
 	currentMonth = currentMonth.nextMonth();
 	updateCalendar(); 
-	alert("The new month is "+currentMonth.month+" "+currentMonth.year);
+	
 }
 
 
-function selected(){
-    alert("do stuff");
+function selected(id){
+    alert(document.getElementById(id).value);
+
+    // $(".active").removeClass("active");
+    
+    console.log(document.getElementsByClassName("active"));
 }
 
 //jquery ================================================================================================================================
@@ -72,190 +106,265 @@ $("#next").click(function(){
 
 //select Date =====================================================================================================
 $("#1").click(function(){
-    selected();
+    selected(1);
     $(".active").removeClass("active");
-    $(this).children().addClass("active");
+    $(this).addClass("active");
 });
 
 $("#2").click(function(){
+	selected(2);
     $(".active").removeClass("active");
-    $(this).children().addClass("active");
+    $(this).addClass("active");
 });
 
 $("#3").click(function(){
+	selected(3);
     $(".active").removeClass("active");
-    $(this).children().addClass("active");
+    $(this).addClass("active");
 });
 
 $("#4").click(function(){
-    $(".active").removeClass("active");
-    $(this).children().addClass("active");
+	selected(4);
+    //$(".active").removeClass("active");
+    $(this).addClass("active");
 });
 
 $("#5").click(function(){
-    $(".active").removeClass("active");
-    $(this).children().addClass("active");
+	selected(5);
+    //$(".active").removeClass("active");
+    $(this).addClass("active");
 });
 
 $("#6").click(function(){
-    $(".active").removeClass("active");
-    $(this).children().addClass("active");
+	selected(6);
+    //$(".active").removeClass("active");
+    $(this).addClass("active");
 });
 
 $("#7").click(function(){
-    $(".active").removeClass("active");
-    $(this).children().addClass("active");
+	selected(7);
+    //$(".active").removeClass("active");
+    $(this).addClass("active");
 });
 
 //Row 2 =================================================================
 $("#8").click(function(){
-    $(".active").removeClass("active");
-    $(this).children().addClass("active");
+	selected(8);
+    //$(".active").removeClass("active");
+    $(this).addClass("active");
 });
 
 $("#9").click(function(){
-    $(".active").removeClass("active");
-    $(this).children().addClass("active");
+	selected(9);
+    //$(".active").removeClass("active");
+    $(this).addClass("active");
 });
 
 $("#10").click(function(){
-    $(".active").removeClass("active");
-    $(this).children().addClass("active");
+	selected(10);
+    //$(".active").removeClass("active");
+    $(this).addClass("active");
 });
 
 $("#11").click(function(){
-    $(".active").removeClass("active");
-    $(this).children().addClass("active");
+	selected(11);
+    //$(".active").removeClass("active");
+    $(this).addClass("active");
 });
 
 $("#12").click(function(){
-    $(".active").removeClass("active");
-    $(this).children().addClass("active");
+	selected(12);
+    //$(".active").removeClass("active");
+    $(this).addClass("active");
 });
 
 $("#13").click(function(){
-    $(".active").removeClass("active");
-    $(this).children().addClass("active");
+	selected(13);
+    //$(".active").removeClass("active");
+    $(this).addClass("active");
 });
 
 $("#14").click(function(){
-    $(".active").removeClass("active");
-    $(this).children().addClass("active");
+	selected(14);
+    //$(".active").removeClass("active");
+    $(this).addClass("active");
 });
 
 //Row #3 ==================================================================
 $("#15").click(function(){
-    $(".active").removeClass("active");
-    $(this).children().addClass("active");
+	selected(15);
+    //$(".active").removeClass("active");
+    $(this).addClass("active");
 });
 
 $("#16").click(function(){
-    $(".active").removeClass("active");
-    $(this).children().addClass("active");
+	selected(16);
+    //$(".active").removeClass("active");
+    $(this).addClass("active");
 });
 
 $("#17").click(function(){
-    $(".active").removeClass("active");
-    $(this).children().addClass("active");
+	selected(17);
+    //$(".active").removeClass("active");
+    $(this).addClass("active");
 });
 
 $("#18").click(function(){
-    $(".active").removeClass("active");
-    $(this).children().addClass("active");
+	selected(18);
+    //$(".active").removeClass("active");
+    $(this).addClass("active");
 });
 
 $("#19").click(function(){
-    $(".active").removeClass("active");
-    $(this).children().addClass("active");
+	selected(19);
+    //$(".active").removeClass("active");
+    $(this).addClass("active");
 });
 
 $("#20").click(function(){
-    $(".active").removeClass("active");
-    $(this).children().addClass("active");
+	selected(20);
+    //$(".active").removeClass("active");
+    $(this).addClass("active");
 });
 
 $("#21").click(function(){
-    $(".active").removeClass("active");
-    $(this).children().addClass("active");
+	selected(21);
+    //$(".active").removeClass("active");
+    $(this).addClass("active");
 });
 
 //Row #4 ==================================================================
 $("#22").click(function(){
-    $(".active").removeClass("active");
-    $(this).children().addClass("active");
+	selected(22);
+    //$(".active").removeClass("active");
+    $(this).addClass("active");
 });
 
 $("#23").click(function(){
-    $(".active").removeClass("active");
-    $(this).children().addClass("active");
+	selected(23);
+    //$(".active").removeClass("active");
+    $(this).addClass("active");
 });
 
 $("#24").click(function(){
-    $(".active").removeClass("active");
-    $(this).children().addClass("active");
+	selected(24);
+    //$(".active").removeClass("active");
+    $(this).addClass("active");
 });
 
 $("#25").click(function(){
-    $(".active").removeClass("active");
-    $(this).children().addClass("active");
+	selected(25);
+    //$(".active").removeClass("active");
+    $(this).addClass("active");
 });
 
 $("#26").click(function(){
-    $(".active").removeClass("active");
-    $(this).children().addClass("active");
+	selected(26);
+    //$(".active").removeClass("active");
+    $(this).addClass("active");
 });
 
 $("#27").click(function(){
-    $(".active").removeClass("active");
-    $(this).children().addClass("active");
+	selected(27);
+    //$(".active").removeClass("active");
+    $(this).addClass("active");
 });
 
 $("#28").click(function(){
-    $(".active").removeClass("active");
-    $(this).children().addClass("active");
+	selected(28);
+    //$(".active").removeClass("active");
+    $(this).addClass("active");
 });
 
 //Row #5 ==================================================================
 $("#29").click(function(){
-    $(".active").removeClass("active");
-    $(this).children().addClass("active");
+	selected(29);
+    //$(".active").removeClass("active");
+    $(this).addClass("active");
 });
 
 $("#30").click(function(){
-    $(".active").removeClass("active");
-    $(this).children().addClass("active");
+	selected(30);
+    //$(".active").removeClass("active");
+    $(this).addClass("active");
 });
 
 $("#31").click(function(){
-    $(".active").removeClass("active");
-    $(this).children().addClass("active");
+	selected(31);
+    //$(".active").removeClass("active");
+    $(this).addClass("active");
 });
 
 $("#32").click(function(){
-    $(".active").removeClass("active");
-    $(this).children().addClass("active");
+	selected(32);
+    //$(".active").removeClass("active");
+    $(this).addClass("active");
 });
 
 $("#33").click(function(){
-    $(".active").removeClass("active");
-    $(this).children().addClass("active");
+	selected(33);
+    //$(".active").removeClass("active");
+    $(this).addClass("active");
 });
 
 $("#34").click(function(){
-    $(".active").removeClass("active");
-    $(this).children().addClass("active");
+	selected(34);
+    //$(".active").removeClass("active");
+    $(this).addClass("active");
 });
 
 $("#35").click(function(){
-    $(".active").removeClass("active");
-    $(this).children().addClass("active");
+	selected(35);
+    //$(".active").removeClass("active");
+    $(this).addClass("active");
 });
 
+$("#36").click(function(){
+	selected(36);
+    //$(".active").removeClass("active");
+    $(this).addClass("active");
+});
 
+$("#37").click(function(){
+	selected(37);
+    //$(".active").removeClass("active");
+    $(this).addClass("active");
+});
+
+$("#38").click(function(){
+	selected(38);
+    //$(".active").removeClass("active");
+    $(this).addClass("active");
+});
+
+$("#39").click(function(){
+	selected(39);
+    //$(".active").removeClass("active");
+    $(this).addClass("active");
+});
+
+$("#40").click(function(){
+	selected(40);
+    //$(".active").removeClass("active");
+    $(this).addClass("active");
+});
+
+$("#41").click(function(){
+	selected(35);
+    //$(".active").removeClass("active");
+    $(this).addClass("active");
+});
+
+$("#42").click(function(){
+	selected(42);
+    //$(".active").removeClass("active");
+    $(this).addClass("active");
+});
 //========================================================================================================================
 //================================================================================================================================
 
 document.addEventListener("DOMContentLoaded", function (){
+	updateCalendar();
 	getCurDay();
 
 	
