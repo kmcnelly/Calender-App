@@ -166,7 +166,7 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
 
 <div class="window-popup" >
   <div class="wp-content">
-    <form id='creation'>
+    <form action="calendar.php" id='creation'>
       Date: <input type = 'date' name = 'date' id='date' value='2018-10-22' required> <br>
       Time: <input type = 'time' name = 'time' id='time' required> <br> <br>
       Title: <input type = 'text' name = 'title' id='eventTitle' required> <br>
@@ -175,6 +175,7 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
       <input type = 'submit'class='button' value = 'Create New Event' id='test'>
     </form>
 
+<<<<<<< HEAD
     <a href="#" class="button" id="button-popup-close">Close</a>
     <script>
 function makeNewEvent(){
@@ -187,6 +188,10 @@ function makeNewEvent(){
 }
 document.getElementById('creation').addEventListener("submit",makeNewEvent,false);
 </script>
+=======
+    <button class="wp-content-button" id="button-popup-close">Close</button>
+
+>>>>>>> 603e1fb1e8ff6df2b897e2ba3de99a2a854b58d2
    </div> 
 </div>
 
