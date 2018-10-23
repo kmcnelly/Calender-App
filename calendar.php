@@ -175,7 +175,8 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
       <input type = 'submit' class='button' value = 'Create New Event' id='test'>
     </form>
 
-    <button class="wp-content-button" id="button-popup-close">Close</button>
+    <a id="button-popup-close">Close</a>
+    
     <script>
 function makeNewEvent(event){
   let date = document.getElementById("eventDate").value;

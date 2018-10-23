@@ -57,8 +57,8 @@ function updateCalendar(){
 
 			
 			// console.log(currentMonth.month + "==" + (monthIn - 1));
-			console.log(counter + ":" + dateIn);
-			console.log(document.getElementById(counter).value);
+			// console.log(counter + ":" + dateIn);
+			// console.log(document.getElementById(counter).value);
 
 			counter += 1;
 		}
@@ -91,7 +91,7 @@ function getNextMonth(){
 
 //pre sets date value to selected date
 function selected(id){
-    $(".window-popup").effect(bounce,10000);
+    $(".window-popup").fadeIn(500);
 
 	let date = document.getElementById(id).value;
     document.getElementById("eventDate").value = date;
