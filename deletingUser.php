@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html lang = "en">
-<head>
-    <title>Delete</title>
-</head>
-<body>
-    <?php
+<?php
+session_start();
     require "requireDatabase5.php";
     
     $username = (String) $_POST['user'];
@@ -31,7 +26,7 @@
             printf("Query Prep Failed8: %s\n", $mysqli->error);
             exit;
         }
-        $stmt->bind('i', $_SESSION['id']);
+        $stmt->bind_param('i', $_SESSION['id']);
         $stmt->execute();
         $stmt->close();
         
@@ -40,9 +35,10 @@
             printf("Query Prep Failed4: %s\n", $mysqli->error);
             exit;
         }
-        $stmt->bind('i', $_SESSION['id']);
+        $stmt->bind_param('i', $_SESSION['id']);
         $stmt->execute();
         $stmt->close();
+        session_destroy();
         header("location: logout.php");
         exit;
     }

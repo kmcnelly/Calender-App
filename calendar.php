@@ -21,20 +21,29 @@ session_start();
 
 <p>Today's Date: <span id=curDate></span></p>
 <input id="date" type="text" size="8" />
-<p id = 'currentuser'></p>
-<script type="text/javascript" >
+
+
+<script>
 function writeUser(){
   let username = <?php echo json_encode($_SESSION['username']); ?>;
+  if(username == null){
+    username = 'Guest';
+    // document.getElementById('acct').innerHTML = "Have an account? Login below:";
+    // document.getElementById('guest').innerHTML = "<form action = 'loggingIn.php'> Username: <input type='text' name='user'> <br> Password: <input type='password' name='pass'> <br><input type = 'submit' id = 'info' value = 'Log In'> </form>";
+    // document.getElementById('creation').innerHTML = "New here? Make an account";
+    // document.getElementById('new').innerHTML = "<form action ='createuser.php'> <input type = 'submit' id = 'logout' value = 'Create Account'> </form>";
+  }
   let newthing = "Welcome, " + username; 
   document.getElementById('currentuser').innerHTML = newthing;
+  document.getElementById('guest').innerHTML = "<form action = 'accountInfo.php'> <input type = 'submit' id = 'info' value = 'My Account'> </form> <form action ="logout.php"> <input type = 'submit' id = 'logout' value = 'Logout'> </form>";
 }
-  document.addEventListener("DOMContentLoaded", writeUser, false);
+document.addEventListener("DOMContentLoaded", writeUser, false);
 </script>
-<form action = "accountInfo.php">
-<input type = 'submit' id = 'info' value = 'My Account'>
-</form>
-<input type = 'submit' id = 'logout' value = 'Logout'>
-
+<p id = 'currentuser'></p>
+<!-- <p id = 'acct'></p>
+<p id = 'guest'></p>
+<p id = 'creation'></p>
+<p id = 'new'></p> -->
 <div class="month">      
   <ul>
     <li class="prev"><span id="prev">&#10094;</span></li>
@@ -142,7 +151,14 @@ function writeUser(){
 <script src="calendar.min.js" type="text/javascript"></script>
 <script src="createEvent.js" type="text/javascript"></script>
 
-<script>
+
+  <input type = 'date' name = 'date' id='date'> date <br>
+  <input type = 'time' name = 'time' id='time'> time <br>
+  <input type = 'text' name = 'title' id='title'> title <br>
+  <input type = 'text' name = 'description' id='description'> description <br>
+  <input type = 'text' name = 'tags' id ='tags'> tags <br>
+  <input type = 'submit' value = 'Create New Event' id='test'>
+  <script>
 function makeNewEvent(){
   let date = document.getElementById("date").value;
   let time = document.getElementById("time").value;
@@ -151,13 +167,7 @@ function makeNewEvent(){
   let tags = document.getElementById("tags").value;
   createEvent(date,time,title,desc,tags);
 }
-document.getElementById("test").addEventListener("click",makeNewEvent,false);
+document.getElementById('test').addEventListener("click",makeNewEvent,false);
 </script>
-  <input type = 'date' name = 'date' id='date'> date <br>
-  <input type = 'time' name = 'time' id='time'> time <br>
-  <input type = 'text' name = 'title' id='title'> title <br>
-  <input type = 'text' name = 'description' id='description'> description <br>
-  <input type = 'text' name = 'tags' id ='tags'> tags <br>
-  <input type = 'Create New Event' id='test'>
 </body>
 </html>
