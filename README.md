@@ -23,6 +23,8 @@ To Get the Events:
 
 To Modify, or Delete an event:
 -User must get the eventID by using the Get Event feature 
+-Re Get the events of the day to see update
+
 Citations:
 -Calendar Css style sheet borrowed from w3school.com tutorial:
 Css converts the list of dates acting as slots on the calendar into the rows and columns seen on a normal calendar
