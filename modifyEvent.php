@@ -13,15 +13,18 @@ session_start();
     //this checks to see if it's being handed a null, if it is, it uses the old value, otherwise it uses the new value.
     if($_POST['date'] != ''){
         $date = $_POST['date'];
+        echo $date;
     }
     else{
         $date = $d;
     }
     if($_POST['title'] != ''){
         $title = $_POST['title'];
+        echo $tt;
     }
     else{
         $title = $tt;
+        echo $tt;
     }
     if($_POST['time'] != ''){
         $time = $_POST['time'];
@@ -42,13 +45,13 @@ session_start();
         $tags = $tg;
     }
  
-    $stmt = $mysqli->prepare("update events set date = ?,time = ?,title = ?, description = ?, tags = ? where eid=?");
-        if(!$stmt){
-            printf("Query Prep Failed dude: %s\n", $mysqli->error);
-            exit;
-        }
-        $stmt->bind_param('sssssi', $date, $time, $title, $description, $tags, $_POST['eid']);
-        $stmt->execute();
-        $stmt->close();
+    // $stmt = $mysqli->prepare("update events set date=?, time=?, title=?, description=?, tags=? where eid=?");
+    //     if(!$stmt){
+    //         printf("Update Query Prep Failed: %s\n", $mysqli->error);
+    //         exit;
+    //     }
+    //     $stmt->bind_param('sssssi', $date, $time, $title, $description, $tags, $_POST['eid']);
+    //     $stmt->execute();
+    //     $stmt->close();
 
 ?>
