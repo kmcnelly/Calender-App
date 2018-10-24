@@ -41,7 +41,7 @@ function updateCalendar(){
 		// alert("Week starting on "+days[0]);
 		
 		for(let d in days){
-			const monthRegex = /(?<=-)\d{2}(?=-)/g
+			const monthRegex = /(?!-)\d{2}(?=-)/g
 			const dateRegex = /(?!-)\d{2}(?=T)/g
 			//day info from the class
 			let dString = days[d].toISOString();
