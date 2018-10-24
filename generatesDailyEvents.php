@@ -39,6 +39,7 @@ $stmt = $mysqli->prepare("select time, title, description, tags, eid from events
 echo "<p>Events for ";
 echo $_GET['date'];
 echo "</p>
+
 <table id='eventTable'>
 <tr>
 <th>Time</th>
@@ -48,6 +49,7 @@ echo "</p>
 <th>Delete?</th>
 <th>Modify?</th>
 </tr>";
+$i = 0;
 while($row = mysqli_fetch_array($result)) {
     echo "<tr>";
     //echo "<td>" . $row['date'] . "</td>";
@@ -55,11 +57,13 @@ while($row = mysqli_fetch_array($result)) {
     echo "<td>" . $row['title'] . "</td>";
     echo "<td>" . $row['description'] . "</td>";
     echo "<td>" . $row['tags'] . "</td>";
+
     echo "<td> <span class='delete'>Delete</span></td>";
     echo "<script>
         $('#eventTable').on('click', '.delete', function () {
             $(this).closest('tr').remove();
         });
+
     </script>";
     echo "<td> <input type='submit' value='modify'></td>";
     echo "</tr>";
