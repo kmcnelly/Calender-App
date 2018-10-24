@@ -67,6 +67,10 @@ body {font-family: Verdana, sans-serif;}
     left: 20%;
     top: 15%;
 }
+    .wp-content h1{
+        background: #1abc9c;
+        color: #333;
+    }
     .wp-content a {
         padding: 10px;
         background: #3498db;

@@ -15,6 +15,7 @@ let currentMonth = new Month(2018, 9); // October 2017
 //current date object
 let today = new Date();
 
+
 // This updateCalendar() function only alerts the dates in the currently specified month.  You need to write
 // it to modify the DOM (optionally using jQuery) to display the days and weeks in the current month.
 function updateCalendar(){
@@ -107,6 +108,10 @@ function selected(id){
 
 	let date = document.getElementById(id).value;
     document.getElementById("eventDate").value = date;
+
+    document.getElementById("selectedDate").innerHTML = date + ": ";
+
+
 
     $("#button-popup-close").click(function(){
     	$(".window-popup").fadeOut(300);

@@ -167,19 +167,21 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
 <div class="window-popup" >
   <div class="wp-content">
   <!-- <script src="makeNewEvent.js" type="text/javascript"></script> -->
-    <form id='creation' action="#">
-      Date: <input type = 'date' name = 'date' id='eventDate' value='2018-10-22' required> <br>
-      Time: <input type = 'time' name = 'time' id='eventTime' required> <br> <br>
-      Title: <input type = 'text' name = 'title' id='eventTitle' value='' required> <br>
-      Description: <input type = 'text' name = 'description' id='eventDescription' value=''> <br>
-      Tags: <span class="school"><input type = 'radio' name = 'category' value ='school'>School. </span>
-            <span class="fun"><input type = 'radio' name = 'category' value ='fun'>Fun. </span>
-            <span class="family"><input type = 'radio' name = 'category' value ='family'>Family. </span>
-            <span class="other"><input type = 'radio' name = 'category' value ='misc'>Other. </span>
-            <span><input type = 'radio' name = 'category' value ='' checked="">None. </span>
-      <br> <br>
-      <input type = 'submit' class='button' value = 'Create New Event' id='addEvent'>
-    </form>
+    <h1><span id="selectedDate"></span></h1>
+    <p>Add Event:</p>
+      <form id='creation' action="#">
+        Date: <input type = 'date' name = 'date' id='eventDate' value='2018-10-22' required> <br>
+        Time: <input type = 'time' name = 'time' id='eventTime' required> <br> <br>
+        Title: <input type = 'text' name = 'title' id='eventTitle' value='' required> <br>
+        Description: <input type = 'text' name = 'description' id='eventDescription' value=''> <br>
+        Tags: <span class="school"><input type = 'radio' name = 'category' value ='school'>School. </span>
+              <span class="fun"><input type = 'radio' name = 'category' value ='fun'>Fun. </span>
+              <span class="family"><input type = 'radio' name = 'category' value ='family'>Family. </span>
+              <span class="other"><input type = 'radio' name = 'category' value ='misc'>Other. </span>
+              <span><input type = 'radio' name = 'category' value ='' checked="">None. </span>
+        <br> <br>
+        <input type = 'submit' class='button' value = 'Create New Event' id='addEvent'>
+      </form>
 
     <a id="button-popup-close">Close</a>
   
