@@ -78,7 +78,7 @@ function getCurDay(){
 	dIn = new Date();
 	dString = new Date(dIn).toUTCString();
 	dString = dString.split(' ').slice(0, 4).join(' ');
-	document.getElementById("curDate").innerHTML = (today.getDay())+", " + (today.getMonth())+"/"+(today.getDate())+"/"+(today.getFullYear());
+	document.getElementById("curDate").innerHTML = days[(today.getDay())]+", " + ((today.getMonth())+1) +"/"+(today.getDate())+"/"+(today.getFullYear());
 }
 
 //change current month to Prev month
@@ -136,7 +136,7 @@ function getData(){
   console.log(": " + title);
   console.log(": " + desc);
   console.log(": " + tag);
-  
+
   if(date != "" && time != "" && title != "" && tags != ""){
   	alert("sent to createEvent");
   	createEvent(date,time,title,desc,tags);

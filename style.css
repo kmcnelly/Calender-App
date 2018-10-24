@@ -12,6 +12,7 @@ https://www.w3schools.com/howto/howto_css_calendar.asp
 ul {list-style-type: none;}
 body {font-family: Verdana, sans-serif;}
 
+/*Tag colors*/
 .school{
     color: red;
 }
@@ -28,6 +29,17 @@ body {font-family: Verdana, sans-serif;}
     color: orange;
 }
 
+/*Delete row button*/
+.delete{
+    padding: 7px;
+    background: #1abc9c;
+    color: white;
+    text-decoration: none;
+    position: absolute;
+    border-radius: 5px;
+}
+
+/*Submit Button*/
 .button{
     padding: 7px;
     background: #1abc9c;
@@ -49,12 +61,12 @@ body {font-family: Verdana, sans-serif;}
 
 .wp-content {
     width: 500px;
-    height: 300px;
+    height: 500px;
     background: white;
     border-radius: 3px;
     position: absolute;
-    left: 30%;
-    top: 25%;
+    left: 20%;
+    top: 15%;
 }
     .wp-content a {
         padding: 10px;
