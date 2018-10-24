@@ -187,7 +187,13 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
     <br> <br>
     <div>
       <input type = 'date' id ='datetest'>
+
       <input type = 'submit' id='su'>
+      Filter: <span><input type = 'radio' name = 'filter' value ='school'>School. </span>
+              <span><input type = 'radio' name = 'filter' value ='fun'>Fun. </span>
+              <span><input type = 'radio' name = 'filter' value ='family'>Family. </span>
+              <span><input type = 'radio' name = 'filter' value ='other'>Other. </span>
+              <span><input type = 'radio' name = 'filter' value ='none' checked="">None. </span>
       <p id='success'></p>
       <p id='daily'></p>
       <p id='elim'></p>

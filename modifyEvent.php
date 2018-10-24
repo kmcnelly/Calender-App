@@ -47,7 +47,7 @@ session_start();
                                                  title,
                                                  description,
                                                  tags)
-                                            values (?,?,?,?,?) 
+                                            values (?,?,?,?,?,?) 
                                                 where eid=?");
         if(!$stmt){
             printf("Query Prep Failed8: %s\n", $mysqli->error);
