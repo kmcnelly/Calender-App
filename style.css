@@ -81,8 +81,10 @@ body {font-family: Verdana, sans-serif;}
         text-decoration: none;
         position: absolute;
         right: 20px;
-        bottom: 20px;
+        top: 20px;
         border-radius: 5px;
+
+        cursor:pointer;
     }
 
 .month {
