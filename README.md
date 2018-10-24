@@ -6,6 +6,9 @@ Kenneth McNelly – 457250
 Link:
 http://www.alexchow.me/module5group/calendar.php?
 
+Example Login:
+username: alex
+password: fishy
 
 WARNING:
 Known issue that calendar does not work in FireFox, due to an issue with Mozillas Regex Handling
@@ -39,4 +42,5 @@ Creative Portion:
     -Tags
     	-User may choose the options of 4 set tag options or no tag
     	-User may then specify retrieving the events in the date by specificy tags or by none
-    -
+    -Add, delete user
+    -user profile with user's events and stuff
