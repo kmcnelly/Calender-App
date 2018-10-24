@@ -7,6 +7,9 @@ Link:
 
 
 
+WARNING:
+Known issue that calendar does not work in FireFox, due to an issue with Mozillas Regex Handling
+https://bugzilla.mozilla.org/show_bug.cgi?id=1425763
 
 Important:
 -Calendar Css style sheet borrowed from w3school.com tutorial:
