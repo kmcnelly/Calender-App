@@ -166,10 +166,19 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
 
 <div class="window-popup" >
   <div class="wp-content">
-  <script src="makeNewEvent.js" type="text/javascript"></script>
-  <script type="text/javascript">
-document.getElementById("test").addEventListener('click',makeNewEvent); -->
-<!-- </script>
+  <!-- <script src="makeNewEvent.js" type="text/javascript"></script> -->
+  <script src="createEvent.js" type="text/javascript"></script>
+<script>
+function makeNewEvent(event){
+  let date = document.getElementById("eventDate").value;
+  let time = document.getElementById("eventTime").value;
+  let title = document.getElementById("eventTitle").value;
+  let desc = document.getElementById("description").value;
+  let tags = document.getElementById("tags").value;
+  createEvent(date,time,title,desc,tags);
+}
+document.getElementById('creation').addEventListener("submit",makeNewEvent,false);
+</script>
     <form id='creation' action="#">
       Date: <input type = 'date' name = 'date' id='eventDate' value='2018-10-22' required> <br>
       Time: <input type = 'time' name = 'time' id='eventTime' required> <br> <br>
