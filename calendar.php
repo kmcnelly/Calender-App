@@ -192,6 +192,8 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
 
 <input type = 'date' id ='datetest'>
 <input type = 'submit' id='su'>
+<input type = 'number' id = 'eid'>
+<input type = 'submit' id = 'del' value = 'Delete'>
 <p id='daily'></p>
 <p id='elim'></p>
 <script>
@@ -218,11 +220,7 @@ function getEvents(){
         xmlhttp.send();
 }
 document.getElementById('su').addEventListener("click",getEvents,false);
-</script>
-<input type = 'number' id = 'eid'>
-<input type = 'submit' id = 'del' value = 'Delete'>
-<script>
-function getEvents(){
+function deleteE(){
   let eid = document.getElementById("eid").value;
   // alert(fdate);
     if (window.XMLHttpRequest) {
@@ -242,8 +240,9 @@ function getEvents(){
         // let data = fdate;
         // alert(data);
         xmlhttp.send();
+        getEvents();
 }
-document.getElementById('del').addEventListener("click",getEvents,false);
+document.getElementById('del').addEventListener("click",deleteE,false);
 </script>
 </body>
 </html>
