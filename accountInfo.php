@@ -12,10 +12,17 @@ session_start()
         <input type="submit" class = button value="Return to my calendar">
     </form>
 <input type = "submit" id = "events" value = "See a list of my events">
-<input type = "submit" id = "pwd" value = "Change password">
 <input type = "submit" id = "delete" value = "Delete my account">
 <p id='feedback'></p>
 <script>
+    function validateUser(){
+        if(!hash_equals($_SESSION['token'], $_POST['token'])){
+	    die("Request forgery detected");
+    }
+    else{
+    alert('checks out chief');
+    }
+    }
 function writeUser(){
   let username = <?php echo json_encode($_SESSION['username']); ?>;
   let newthing = "Hi " + username + ", what would you like to do today?"; 
@@ -53,6 +60,7 @@ function deleteUser(){
         xmlhttp.open("GET","deleteUser.php",false);
         xmlhttp.send();
 }
+document.addEventListener("DOMContentLoaded", validateUser, false);
 document.addEventListener("DOMContentLoaded", writeUser, false);
 document.getElementById("events").addEventListener("click", getEvents, false);
 document.getElementById("delete").addEventListener("click", deleteUser, false);
