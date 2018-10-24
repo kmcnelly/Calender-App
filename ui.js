@@ -110,8 +110,7 @@ function selected(id){
     document.getElementById("eventDate").value = date;
     document.getElementById("datetest").value = date;
 
-    console.log(date); //what Alex wishes he could go on
-                       //oh fight me
+    console.log(date);
 
     document.getElementById("selectedDate").innerText = date + ": ";
 
@@ -139,15 +138,17 @@ function getData(){
   		break;
   	}
   }
-
- console.log(": " + date);
+  $("#creation").submit(function(e) {
+    e.preventDefault();
+});
+  console.log(": " + date);
   console.log(": " + time);
   console.log(": " + title);
   console.log(": " + desc);
   console.log(": " + tag);
 
   if(date != "" && time != "" && title != "" && tags != ""){
-  	alert("sent to createEvent");
+  	// alert("sent to createEvent");
   	createEvent(date,time,title,desc,tag);
   }
   else{
