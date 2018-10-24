@@ -22,8 +22,6 @@ function createEvent(date,time,title,desc,tags){
         xmlhttp.open("POST","createsEvents.php",false);
         xmlhttp.send(data);
 
-
-
 }
 
 function testPhp(){

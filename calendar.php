@@ -166,7 +166,20 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
 
 <div class="window-popup" >
   <div class="wp-content">
-    <form id='creation'>
+  <!-- <script src="makeNewEvent.js" type="text/javascript"></script> -->
+  <script src="createEvent.js" type="text/javascript"></script>
+<script>
+function makeNewEvent(event){
+  let date = document.getElementById("eventDate").value;
+  let time = document.getElementById("eventTime").value;
+  let title = document.getElementById("eventTitle").value;
+  let desc = document.getElementById("description").value;
+  let tags = document.getElementById("tags").value;
+  createEvent(date,time,title,desc,tags);
+}
+document.getElementById('creation').addEventListener("submit",makeNewEvent,false);
+</script>
+    <form id='creation' action="#">
       Date: <input type = 'date' name = 'date' id='eventDate' value='2018-10-22' required> <br>
       Time: <input type = 'time' name = 'time' id='eventTime' required> <br> <br>
       Title: <input type = 'text' name = 'title' id='eventTitle' required> <br>
@@ -176,19 +189,7 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
     </form>
 
     <a id="button-popup-close">Close</a>
-    
-    <script>
-function makeNewEvent(event){
-  let date = document.getElementById("eventDate").value;
-  let time = document.getElementById("eventTime").value;
-  let title = document.getElementById("eventTitle").value;
-  let desc = document.getElementById("description").value;
-  let tags = document.getElementById("tags").value;
-  alert(date);
-  // createEvent(date,time,title,desc,tags);
-}
-document.getElementById("test").addEventListener('click',makeNewEvent);
-</script>
+  
    </div> 
 </div>
 
@@ -197,10 +198,10 @@ document.getElementById("test").addEventListener('click',makeNewEvent);
 <script src="createEvent.js" type="text/javascript"></script>
 
 <script>
-function makeNewEvent(){
-  let date = document.getElementById("date").value;
-  let time = document.getElementById("time").value;
-  let title = document.getElementById("title").value;
+function makeNewEvent(event){
+  let date = document.getElementById("eventDate").value;
+  let time = document.getElementById("eventTime").value;
+  let title = document.getElementById("eventTitle").value;
   let desc = document.getElementById("description").value;
   let tags = document.getElementById("tags").value;
   createEvent(date,time,title,desc,tags);
