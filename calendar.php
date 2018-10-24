@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
 
   <li><span id= "19">-</span></li>
 
-  <li><span id= "20">-<!--<span class="event">*</span>--></span></li>
+  <li><span id= "20">-</span></li>
 
   <li><span id= "21">-</span></li>
 

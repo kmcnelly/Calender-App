@@ -131,7 +131,12 @@ function getData(){
   	}
   }
 
-
+ console.log(": " + date);
+  console.log(": " + time);
+  console.log(": " + title);
+  console.log(": " + desc);
+  console.log(": " + tag);
+  
   if(date != "" && time != "" && title != "" && tags != ""){
   	alert("sent to createEvent");
   	createEvent(date,time,title,desc,tags);
