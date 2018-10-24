@@ -21,6 +21,7 @@ session_start();
 
 <p>Today's Date: <span id=curDate></span></p>
 
+<!-- User php -->
 <script>
 function writeUser(){
   let username = <?php echo json_encode($_SESSION['username']); ?>;
@@ -34,7 +35,7 @@ function writeUser(){
   else{
   let newthing = "Welcome, " + username; 
   document.getElementById('currentuser').innerHTML = newthing;
-  document.getElementById('guest').innerHTML = "<form action = 'accountInfo.php' method='POST'> <input type = 'hidden' name = 'token' value = '<?php echo $_SESSION['token'];?>'> <input type = 'submit' id = 'info' value = 'My Account'> </form> <form action ='logout.php'> <input type = 'submit' id = 'logout' value = 'Logout'> </form>";
+  document.getElementById('guest').innerHTML = "<form action = 'accountInfo.php'> <input type = 'submit' id = 'info' value = 'My Account'> </form> <form action ='logout.php'> <input type = 'submit' id = 'logout' value = 'Logout'> </form>";
 }
 }
 document.addEventListener("DOMContentLoaded", writeUser, false);
@@ -45,6 +46,7 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
 <p id = 'creation'></p>
 <p id = 'new'></p>
 
+<!-- Head of Calendar -->
 <div class="month">      
   <ul>
     <li class="prev"><span id="prev">&#10094;</span></li>
@@ -166,8 +168,10 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
 
   <div class="window-popup" >
   <div class="wp-content">
+    <!-- Display selected Date as header -->
     <h1><span id="selectedDate">Date: </span></h1>
 
+<!-- Add event with inputed information -->
     <div>
     <p>Add Event:</p>
       <form id='creation'>
@@ -186,6 +190,8 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
     </div>
     <br> <br>
     <div>
+
+<!-- Return the events in a given Date -->
       <input type = 'date' id ='datetest'>
 
       <input type = 'submit' id='su'>
@@ -222,6 +228,8 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
       }
       document.getElementById('su').addEventListener("click",getEvents,false);
       </script>
+
+<!-- Delete an event given the eventID -->
       Delete an event:<input type = 'number' id = 'eid'>
       <input type = 'submit' id = 'del' value = 'Delete'>
       <script>
@@ -250,6 +258,7 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
       </script>
     </div>
     
+<!-- Close popup window -->
     <a id="button-popup-close">Close</a>
 
    </div> 
@@ -265,7 +274,7 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
 <input type = 'submit' id = 'del' value = 'Delete'>
 <p id='daily'></p>
 <p id='elim'></p>
-<p id='mod'></p>
+
 <p>Modify an Event:</p>
 Event ID: <input type = 'number' id = 'meid'>
 Date: <input type = 'date' name = 'date' id='eventDate1' value='2018-10-22'> <br>
@@ -280,56 +289,55 @@ Date: <input type = 'date' name = 'date' id='eventDate1' value='2018-10-22'> <br
             <span><input type = 'radio' name = 'category1' value ='' checked="">Same. </span>
       <br> <br>
       <input type = 'button' class='button' value = 'Modify Event' id='modEvent'>
-
 <script>
-function getEvents(){
-  let date = document.getElementById("datetest").value;
-  let fdate = "date="+date;
-  // alert(fdate);
-    if (window.XMLHttpRequest) {
-            // code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest();
-        } else {
-            // code for IE6, IE5
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("daily").innerHTML = this.responseText;
-            }
-        };
-        // xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        xmlhttp.open("GET","generatesDailyEvents.php?date="+date,false);
-        // let data = fdate;
-        // alert(data);
-        xmlhttp.send();
-}
-document.getElementById('su').addEventListener("click",getEvents,false);
-function deleteE(){
-  let eid = document.getElementById("eid").value;
-  let data = new FormData();
-    data.append('eid', eid);
-  // alert(fdate);
-    if (window.XMLHttpRequest) {
-            // code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest();
-        } else {
-            // code for IE6, IE5
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("elim").innerHTML = this.responseText;
-            }
-        };
-        // xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        xmlhttp.open("POST","deleteEvent.php",false);
-        // let data = fdate;
-        // alert(data);
-        xmlhttp.send(data);
-        getEvents();
-}
-document.getElementById('del').addEventListener("click",deleteE,false);
+// function getEvents(){
+//   let date = document.getElementById("datetest").value;
+//   let fdate = "date="+date;
+//   // alert(fdate);
+//     if (window.XMLHttpRequest) {
+//             // code for IE7+, Firefox, Chrome, Opera, Safari
+//             xmlhttp = new XMLHttpRequest();
+//         } else {
+//             // code for IE6, IE5
+//             xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+//         }
+//         xmlhttp.onreadystatechange = function() {
+//             if (this.readyState == 4 && this.status == 200) {
+//                 document.getElementById("daily").innerHTML = this.responseText;
+//             }
+//         };
+//         // xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+//         xmlhttp.open("GET","generatesDailyEvents.php?date="+date,false);
+//         // let data = fdate;
+//         // alert(data);
+//         xmlhttp.send();
+// }
+// document.getElementById('su').addEventListener("click",getEvents,false);
+// function deleteE(){
+//   let eid = document.getElementById("eid").value;
+//   let data = new FormData();
+//     data.append('eid', eid);
+//   // alert(fdate);
+//     if (window.XMLHttpRequest) {
+//             // code for IE7+, Firefox, Chrome, Opera, Safari
+//             xmlhttp = new XMLHttpRequest();
+//         } else {
+//             // code for IE6, IE5
+//             xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+//         }
+//         xmlhttp.onreadystatechange = function() {
+//             if (this.readyState == 4 && this.status == 200) {
+//                 document.getElementById("elim").innerHTML = this.responseText;
+//             }
+//         };
+//         // xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+//         xmlhttp.open("POST","deleteEvent.php",false);
+//         // let data = fdate;
+//         // alert(data);
+//         xmlhttp.send(data);
+//         getEvents();
+// }
+// document.getElementById('del').addEventListener("click",deleteE,false);
 function changeE(){
   let date;
   let time;
@@ -397,7 +405,7 @@ function changeE(){
         }
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("mod").innerHTML = this.responseText;
+                document.getElementById("elim").innerHTML = this.responseText;
             }
         };
         // xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
