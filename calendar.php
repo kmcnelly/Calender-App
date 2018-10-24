@@ -199,7 +199,7 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
               <span><input type = 'radio' name = 'filter' value ='fun'>Fun. </span>
               <span><input type = 'radio' name = 'filter' value ='family'>Family. </span>
               <span><input type = 'radio' name = 'filter' value ='other'>Other. </span>
-              <span><input type = 'radio' name = 'filter' value ='none' checked="">None. </span>
+              <span><input type = 'radio' name = 'filter' value ='none' id="noTag" checked="">None. </span>
       <p id='success'></p>
       <p id='daily'></p>
       <p id='elim'></p>
@@ -220,8 +220,23 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
                       document.getElementById("daily").innerHTML = this.responseText;
                   }
               };
-              // xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-              xmlhttp.open("GET","generatesDailyEvents.php?date="+date,false);
+              
+              if($('#noTag').is(':checked')) {
+                xmlhttp.open("GET","generatesDailyEvents.php?date="+date,false);
+              }
+              else{
+                let tags = document.getElementsByName('category');
+                for(let i = 0, length = tags.length; i < length; i++){
+                  if(tags[i].checked){
+                    tag = tags[i].value;
+
+                    xmlhttp.open("GET","pullByTag.php?date="+date+"&tag="+tag,false);
+                    break;
+                  }
+                }
+              }
+
+
               // let data = fdate;
               // alert(data);
               xmlhttp.send();
@@ -290,54 +305,7 @@ Date: <input type = 'date' name = 'date' id='eventDate1' value='2018-10-22'> <br
       <br> <br>
       <input type = 'button' class='button' value = 'Modify Event' id='modEvent'>
 <script>
-// function getEvents(){
-//   let date = document.getElementById("datetest").value;
-//   let fdate = "date="+date;
-//   // alert(fdate);
-//     if (window.XMLHttpRequest) {
-//             // code for IE7+, Firefox, Chrome, Opera, Safari
-//             xmlhttp = new XMLHttpRequest();
-//         } else {
-//             // code for IE6, IE5
-//             xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-//         }
-//         xmlhttp.onreadystatechange = function() {
-//             if (this.readyState == 4 && this.status == 200) {
-//                 document.getElementById("daily").innerHTML = this.responseText;
-//             }
-//         };
-//         // xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-//         xmlhttp.open("GET","generatesDailyEvents.php?date="+date,false);
-//         // let data = fdate;
-//         // alert(data);
-//         xmlhttp.send();
-// }
-// document.getElementById('su').addEventListener("click",getEvents,false);
-// function deleteE(){
-//   let eid = document.getElementById("eid").value;
-//   let data = new FormData();
-//     data.append('eid', eid);
-//   // alert(fdate);
-//     if (window.XMLHttpRequest) {
-//             // code for IE7+, Firefox, Chrome, Opera, Safari
-//             xmlhttp = new XMLHttpRequest();
-//         } else {
-//             // code for IE6, IE5
-//             xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-//         }
-//         xmlhttp.onreadystatechange = function() {
-//             if (this.readyState == 4 && this.status == 200) {
-//                 document.getElementById("elim").innerHTML = this.responseText;
-//             }
-//         };
-//         // xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-//         xmlhttp.open("POST","deleteEvent.php",false);
-//         // let data = fdate;
-//         // alert(data);
-//         xmlhttp.send(data);
-//         getEvents();
-// }
-// document.getElementById('del').addEventListener("click",deleteE,false);
+
 function changeE(){
   let date;
   let time;
