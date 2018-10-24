@@ -266,12 +266,12 @@ Date: <input type = 'date' name = 'date' id='eventDate1' value='2018-10-22'> <br
       Time: <input type = 'time' name = 'time' id='eventTime1'> <br> <br>
       Title: <input type = 'text' name = 'title' id='eventTitle1' value=''> <br>
       Description: <input type = 'text' name = 'description' id='eventDescription1' value=''> <br>
-      Tags: <span class="school"><input type = 'radio' name = 'category' value ='school'>School. </span>
-            <span class="fun"><input type = 'radio' name = 'category' value ='fun'>Fun. </span>
-            <span class="family"><input type = 'radio' name = 'category' value ='family'>Family. </span>
-            <span class="other"><input type = 'radio' name = 'category' value ='misc'>Other. </span>
-            <span><input type = 'radio' name = 'category' value ='none'>None. </span>
-            <span><input type = 'radio' name = 'category' value ='' checked="">Same. </span>
+      Tags: <span class="school"><input type = 'radio' name = 'category1' value ='school'>School. </span>
+            <span class="fun"><input type = 'radio' name = 'category1' value ='fun'>Fun. </span>
+            <span class="family"><input type = 'radio' name = 'category1' value ='family'>Family. </span>
+            <span class="other"><input type = 'radio' name = 'category1' value ='misc'>Other. </span>
+            <span><input type = 'radio' name = 'category1' value ='none'>None. </span>
+            <span><input type = 'radio' name = 'category1' value ='' checked="">Same. </span>
       <br> <br>
       <input type = 'button' class='button' value = 'Modify Event' id='modEvent'>
 <script>
@@ -361,7 +361,7 @@ function changeE(){
   console.log(": " + tag);
 
   //get checked tag
-  let tags = document.getElementsByName('category');
+  let tags = document.getElementsByName('category1');
   for(let i = 0, length = tags.length; i < length; i++){
   	if(tags[i].checked){
   		tag = tags[i].value;
