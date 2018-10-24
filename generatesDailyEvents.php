@@ -24,7 +24,7 @@ th {text-align: left;}
 
 require 'requireDatabase5.php';
 
-$stmt = $mysqli->prepare("select time, title, description, tags, eid from events where date = ? and uid = ?");
+$stmt = $mysqli->prepare("select time, title, description, tags, eid from events where date = ? and uid = ? order by time");
     if(!$stmt){
         printf("Query Prep Failed: %s\n", $mysqli->error);
         exit;
