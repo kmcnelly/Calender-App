@@ -46,8 +46,7 @@ echo "</p>
 <th>Title</th>
 <th>Description</th>
 <th>Tags</th>
-<th>Delete?</th>
-<th>Modify?</th>
+<th>Event ID</th>
 </tr>";
 $i = 0;
 while($row = mysqli_fetch_array($result)) {
@@ -57,16 +56,16 @@ while($row = mysqli_fetch_array($result)) {
     echo "<td>" . $row['title'] . "</td>";
     echo "<td>" . $row['description'] . "</td>";
     echo "<td>" . $row['tags'] . "</td>";
+    echo "<td>" . $row['eid'] . "</td";
+    // echo "<td> <span class='delete'>Delete</span></td>";
+    // echo "<script>
+    //     $('#eventTable').click(function () {
+    //         $(this).closest('tr').remove();
+    //         console.log($row);
+    //     });
 
-    echo "<td> <span class='delete'>Delete</span></td>";
-    echo "<script>
-        $('#eventTable').click(function () {
-            $(this).closest('tr').remove();
-            console.log($row);
-        });
-
-    </script>";
-    echo "<td> <input type='submit' value='modify'></td>";
+    // </script>";
+    // echo "<td> <input type='submit' value='modify'></td>";
     echo "</tr>";
 }
 echo "</table>";

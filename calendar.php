@@ -193,6 +193,7 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
 <input type = 'date' id ='datetest'>
 <input type = 'submit' id='su'>
 <p id='daily'></p>
+<p id='elim'></p>
 <script>
 function getEvents(){
   let date = document.getElementById("datetest").value;
@@ -217,6 +218,32 @@ function getEvents(){
         xmlhttp.send();
 }
 document.getElementById('su').addEventListener("click",getEvents,false);
+</script>
+<input type = 'number' id = 'eid'>
+<input type = 'submit' id = 'del' value = 'Delete'>
+<script>
+function getEvents(){
+  let eid = document.getElementById("eid").value;
+  // alert(fdate);
+    if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("elim").innerHTML = this.responseText;
+            }
+        };
+        // xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xmlhttp.open("GET","deleteEvent.php?eid="+eid,false);
+        // let data = fdate;
+        // alert(data);
+        xmlhttp.send();
+}
+document.getElementById('del').addEventListener("click",getEvents,false);
 </script>
 </body>
 </html>

@@ -3,7 +3,7 @@
         require 'requireDatabase5.php';
 
         $username = (String) $_POST['user'];
-        $password = (String) $_POST['password'];
+        $password = (String) $_POST['pass'];
 
         $pwhash = password_hash($password, PASSWORD_DEFAULT);
 
