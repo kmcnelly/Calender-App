@@ -53,7 +53,7 @@ function updateCalendar(){
 			let dateIn = dateRegex.exec(dString);
 
 			//denotes current date in the calendar
-			if(today.getMonth()== (monthIn-1) && today.getDate()==dateIn today.getFullYear()==currentMonth.year){
+			if(today.getMonth()== (monthIn-1) && today.getDate()==dateIn && today.getFullYear()==currentMonth.year){
 				$(document.getElementById(counter)).addClass("today");
 			}
 
