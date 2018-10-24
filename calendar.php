@@ -281,12 +281,6 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
     <br>
 <!-- MODIFY EVENTS Modify an event given the eventID -->
     <div>
-      <input type = 'date' id ='datetest'>
-      <input type = 'submit' id='su'>
-      <input type = 'number' id = 'eid'>
-      <input type = 'submit' id = 'del' value = 'Delete'>
-      <p id='daily'></p>
-      <p id='elim'></p>
 
       <p>Modify an Event:</p>
       Event ID: <input type = 'number' id = 'meid'>
