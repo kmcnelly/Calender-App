@@ -184,7 +184,12 @@ document.getElementById('creation').addEventListener("submit",makeNewEvent,false
       Time: <input type = 'time' name = 'time' id='eventTime' required> <br> <br>
       Title: <input type = 'text' name = 'title' id='eventTitle' required> <br>
       Description: <input type = 'text' name = 'description' id='eventDescription'> <br>
-      Tags: <input type = 'text' name = 'tags' id ='tags'> <br> <br>
+      Tags: <span class="school"><input type = 'radio' name = 'category' value ='school'>School. </span>
+            <span class="fun"><input type = 'radio' name = 'category' value ='fun'>Fun. </span>
+            <span class="family"><input type = 'radio' name = 'category' value ='family'>Family. </span>
+            <span class="other"><input type = 'radio' name = 'category' value ='misc'>Other. </span>
+            <span><input type = 'radio' name = 'category' value ='' checked="">None. </span>
+      <br> <br>
       <input type = 'submit' class='button' value = 'Create New Event' id='test'>
     </form>
 

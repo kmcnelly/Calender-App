@@ -13,19 +13,19 @@ ul {list-style-type: none;}
 body {font-family: Verdana, sans-serif;}
 
 .school{
-
+    color: red;
 }
 
 .fun{
-
+    color: blue;
 }
 
 .family{
-
+    color: green;
 }
 
 .other{
-    
+    color: orange;
 }
 
 .button{
