@@ -170,7 +170,7 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
 
     <div>
     <p>Add Event:</p>
-      <form id='creation' action="#">
+      <form id='creation'>
         Date: <input type = 'date' name = 'date' id='eventDate' value='2018-10-22' required> <br>
         Time: <input type = 'time' name = 'time' id='eventTime' required> <br> <br>
         Title: <input type = 'text' name = 'title' id='eventTitle' value='' required> <br>
@@ -181,7 +181,7 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
               <span class="other"><input type = 'radio' name = 'category' value ='other'>Other. </span>
               <span><input type = 'radio' name = 'category' value ='none' checked="">None. </span>
         <br> <br>
-        <input type = 'submit' class='button' value = 'Create New Event' id='addEvent'>
+        <input type = 'button' class='button' value = 'Create New Event' id='addEvent'>
       </form>
     </div>
     <br> <br>
@@ -273,7 +273,7 @@ Date: <input type = 'date' name = 'date' id='eventDate1' value='2018-10-22'> <br
             <span><input type = 'radio' name = 'category' value ='none'>None. </span>
             <span><input type = 'radio' name = 'category' value ='' checked="">Same. </span>
       <br> <br>
-      <input type = 'submit' class='button' value = 'Modify Event' id='modEvent'>
+      <input type = 'button' class='button' value = 'Modify Event' id='modEvent'>
 <script>
 function getEvents(){
   let date = document.getElementById("datetest").value;
@@ -300,6 +300,8 @@ function getEvents(){
 document.getElementById('su').addEventListener("click",getEvents,false);
 function deleteE(){
   let eid = document.getElementById("eid").value;
+  let data = new FormData();
+    data.append('eid', eid);
   // alert(fdate);
     if (window.XMLHttpRequest) {
             // code for IE7+, Firefox, Chrome, Opera, Safari
@@ -314,39 +316,42 @@ function deleteE(){
             }
         };
         // xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        xmlhttp.open("GET","deleteEvent.php?eid="+eid,false);
+        xmlhttp.open("POST","deleteEvent.php",false);
         // let data = fdate;
         // alert(data);
-        xmlhttp.send();
+        xmlhttp.send(data);
         getEvents();
 }
 document.getElementById('del').addEventListener("click",deleteE,false);
 function changeE(){
- 
+  let date;
+  let time;
+  let title;
+  let desc;
   let meid = document.getElementById("meid").value;
   if(document.getElementById("eventDate1") != null){
-  let date = document.getElementById("eventDate1").value;
+  date = document.getElementById("eventDate1").value;
   }
   else{
-  let date = null;
+  date = null;
   }
   if(document.getElementById("eventTime1") != null){
-  let time = document.getElementById("eventTime1").value;
+  time = document.getElementById("eventTime1").value;
   }
   else{
-  let time = null;
+  time = null;
   }
   if(document.getElementById("eventTitle1") != null){
-  let title = document.getElementById("eventTitle1").value;
+  title = document.getElementById("eventTitle1").value;
   }
   else{
-  let title = null;
+  title = null;
   }
   if(document.getElementById("eventDescription1") != null){
-  let desc = document.getElementById("eventDescription1").value;
+  desc = document.getElementById("eventDescription1").value;
   }
   else{
-  let desc = null;
+  desc = null;
   }
   let tag;
   console.log(": " + date);
@@ -363,6 +368,18 @@ function changeE(){
   		break;
   	}
   }
+  if(tag != undefined){
+  tag = tag;
+  }
+  else{
+  tag = null;
+  }
+  let data = new FormData();
+    data.append('date', date);
+    data.append('time', time);
+    data.append('title', title);
+    data.append('description', desc);
+    data.append('tags', tag);
   // alert(fdate);
     if (window.XMLHttpRequest) {
             // code for IE7+, Firefox, Chrome, Opera, Safari
@@ -377,11 +394,11 @@ function changeE(){
             }
         };
         // xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        xmlhttp.open("GET","modifyEvent.php?eid="+meid+"&date="+eventDate1+"&time="+eventTime1+"&title="+eventTitle1+"&description="+eventDescription1+"&tags="+tag,false);
+        xmlhttp.open("POST","modifyEvent.php",false);
         // let data = fdate;
         // alert(data);
-        xmlhttp.send();
-        getEvents();
+        xmlhttp.send(data);
+        // modifyEvents();
 }
 document.getElementById('modEvent').addEventListener("click",changeE,false);
 </script>

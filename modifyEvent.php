@@ -1,51 +1,59 @@
 <?php
 session_start();
     require "requireDatabase5.php";
-    if($_GET['date'] != null){
-        $date = $_GET['date'];
+    $stmt = $mysqli->prepare("select date, time, title, description, tags from events where eid = ? and uid = ? order by time");
+    if(!$stmt){
+        printf("Query Prep Failed: %s\n", $mysqli->error);
+        exit;
+    }
+    $stmt->bind_param('ii', $_POST['eid'], $_SESSION['id']);
+    $stmt->execute();
+    $stmt->bind_result($d,$tm,$tt,$dc,$tg);
+
+    //this checks to see if it's being handed a null, if it is, it uses the old value, otherwise it uses the new value.
+    if($_POST['date'] != null){
+        $date = $_POST['date'];
     }
     else{
-        $date = "old_value";
+        $date = $d;
     }
-    if($_GET['title'] != null){
-        $title = $_GET['title'];
-    }
-    else{
-        $title = "old_value";
-    }
-    if($_GET['time'] != null){
-        $time = $_GET['time'];
+    if($_POST['title'] != null){
+        $title = $_POST['title'];
     }
     else{
-        $time = "time";
+        $title = $tt;
     }
-    if($_GET['description'] != null){
-        $description = $_GET['description'];
-    }
-    else{
-        $description = "description";
-    }
-    if($_GET['tags'] != null){
-        $tags = $_GET['tags'];
-    }
-    elseif($_GET['tags'] == 'none'){
-        $tags = '';
+    if($_POST['time'] != null){
+        $time = $_POST['time'];
     }
     else{
-        $tags = "old_value";
+        $time = $tm;
+    }
+    if($_POST['description'] != null){
+        $description = $_POST['description'];
+    }
+    else{
+        $description = $dc;
+    }
+    if($_POST['tags'] != null){
+        $tags = $_POST['tags'];
+    }
+    else{
+        $tags = $tg;
     }
  
-        $stmt = $mysqli->prepare("update events set date = ?,
-                                                    time = ?,
-                                                    title = ?,
-                                                    description = ?,
-                                                    tags = ? 
+    $stmt = $mysqli->prepare("update events set (date,
+                                                 time,
+                                                 title,
+                                                 description,
+                                                 tags)
+                                            values (?,?,?,?,?) 
                                                 where eid=?");
-        if(!$stmt){ #remove all of their comments
+        if(!$stmt){
             printf("Query Prep Failed8: %s\n", $mysqli->error);
             exit;
         }
-        $stmt->bind_param('sssssi', $_GET['date'], $_GET['time'], $_GET['title'], $_GET['description'], $_GET['eid']);
+        $stmt->bind_param('sssssi', $date, $time, $title, $description, $tags, $_POST['eid']);
         $stmt->execute();
         $stmt->close();
 
