@@ -13,11 +13,11 @@ function createEvent(date,time,title,desc,tags){
             // code for IE6, IE5
             xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
         }
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("success").innerHTML = "Successfully created new event";
-            }
-        };
+        // xmlhttp.onreadystatechange = function() {
+        //     if (this.readyState == 4 && this.status == 200) {
+        //         document.getElementById("success").innerHTML = "Successfully created new event";
+        //     }
+        // };
 
         xmlhttp.open("POST","createsEvents.php",false);
         xmlhttp.send(data);

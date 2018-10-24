@@ -1,22 +1,7 @@
 <?php
     session_start();
 
-        require 'requireDatabase5.php';
-        // $stmt = $mysqli->prepare("select username from users;");
-        // if(!$stmt){
-        //     printf("Query Prep Failed: %s\n", $mysqli->error);
-        //     exit;
-        // }
-        
-        // $stmt->execute();
-
-        // $stmt->bind_result($u);
-
-        // while ($stmt->fetch()) {
-        //     echo $u;
-        // }
-        // $stmt->close();
-  
+    require 'requireDatabase5.php';
     $token = $_SESSION['token'];
     $user = $_SESSION['id'];
     $date = $_POST['date'];
@@ -36,21 +21,4 @@
         $stmt->execute();
         
         $stmt->close();
-        
-        // $stmt = $mysqli->prepare("select * from events;");
-        // if(!$stmt){
-        //     printf("Query Prep Failed: %s\n", $mysqli->error);
-        //     exit;
-        // }
-        // $stmt->execute();
-
-        // $stmt->bind_result($u);
-
-        // while ($stmt->fetch()) {
-        //     echo $u;
-        // }
-        // $stmt->close();
-        
-        
-        // header("location: calendar.php");
 ?>

@@ -29,7 +29,7 @@ function writeUser(){
     document.getElementById("acct").innerHTML = "Have an account? Login below:";
     document.getElementById("guest").innerHTML = "<form action = 'loggingIn.php' method = 'POST'> Username: <input type='text' name='user'> <br> Password: <input type='password' name='pass'> <br><input type = 'submit' id = 'info' value = 'Log In'> </form>";
     document.getElementById("creation").innerHTML = "New here? Make an account";
-    document.getElementById("new").innerHTML = "<form action ='createuser.php' method = 'POST'>Username: <input type='text' name='user'> <br> Password: <input type='password' name='pass'> <br> <input type = 'submit' id = 'info' value = 'Create Account'> </form>";
+    document.getElementById("new").innerHTML = "<form action ='createuser.php' method = 'POST'>Username: <input type='text' name='user'> <br> Password: <input type='password' name='pass'> <br> <input type = 'submit' id = 'ca' value = 'Create Account'> </form>";
   }
   else{
   let newthing = "Welcome, " + username; 
@@ -164,29 +164,9 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
 
 </ul>
 
-<div class="window-popup" >
+  <div class="window-popup" >
   <div class="wp-content">
-  <!-- <script src="makeNewEvent.js" type="text/javascript"></script> -->
-    <h1><span id="selectedDate"></span></h1>
-    <p>Add Event:</p>
-      <form id='creation' action="#">
-        Date: <input type = 'date' name = 'date' id='eventDate' value='2018-10-22' required> <br>
-        Time: <input type = 'time' name = 'time' id='eventTime' required> <br> <br>
-        Title: <input type = 'text' name = 'title' id='eventTitle' value='' required> <br>
-        Description: <input type = 'text' name = 'description' id='eventDescription' value=''> <br>
-        Tags: <span class="school"><input type = 'radio' name = 'category' value ='school'>School. </span>
-              <span class="fun"><input type = 'radio' name = 'category' value ='fun'>Fun. </span>
-              <span class="family"><input type = 'radio' name = 'category' value ='family'>Family. </span>
-              <span class="other"><input type = 'radio' name = 'category' value ='misc'>Other. </span>
-              <span><input type = 'radio' name = 'category' value ='' checked="">None. </span>
-        <br> <br>
-        <input type = 'submit' class='button' value = 'Create New Event' id='addEvent'>
-      </form>
-
-
-      <div class="window-popup" >
-  <div class="wp-content">
-    <h1 id="selectedDate">-</h1>
+    <h1><span id="selectedDate">Date: </span></h1>
 
     <div>
     <p>Add Event:</p>
@@ -204,10 +184,11 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
         <input type = 'submit' class='button' value = 'Create New Event' id='addEvent'>
       </form>
     </div>
-
+    <br> <br>
     <div>
       <input type = 'date' id ='datetest'>
       <input type = 'submit' id='su'>
+      <p id='success'></p>
       <p id='daily'></p>
       <p id='elim'></p>
       <script>
@@ -268,11 +249,6 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
    </div> 
 </div>
 
-    <a id="button-popup-close">Close</a>
-  
-   </div> 
-</div>
-
 <script src="ui.js" type="text/javascript"></script>
 <script src="calendar.min.js" type="text/javascript"></script>
 <script src="createEvent.js" type="text/javascript"></script>
@@ -289,7 +265,7 @@ Event ID: <input type = 'number' id = 'meid'>
 Date: <input type = 'date' name = 'date' id='eventDate1' value='2018-10-22'> <br>
       Time: <input type = 'time' name = 'time' id='eventTime1'> <br> <br>
       Title: <input type = 'text' name = 'title' id='eventTitle1' value=''> <br>
-      Description: <input type = 'text' name = 'description1' id='eventDescription' value=''> <br>
+      Description: <input type = 'text' name = 'description' id='eventDescription1' value=''> <br>
       Tags: <span class="school"><input type = 'radio' name = 'category' value ='school'>School. </span>
             <span class="fun"><input type = 'radio' name = 'category' value ='fun'>Fun. </span>
             <span class="family"><input type = 'radio' name = 'category' value ='family'>Family. </span>

@@ -110,7 +110,10 @@ function selected(id){
     document.getElementById("eventDate").value = date;
     document.getElementById("datetest").value = date;
 
-    document.getElementById("selectedDate").innerHTML = date + ": ";
+    console.log(date); //what Alex wishes he could go on
+                       //oh fight me
+
+    document.getElementById("selectedDate").innerText = date + ": ";
 
 
 
