@@ -196,6 +196,21 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
 <input type = 'submit' id = 'del' value = 'Delete'>
 <p id='daily'></p>
 <p id='elim'></p>
+
+<p>Modify an Event:</p>
+Event ID: <input type = 'number' id = 'meid'>
+Date: <input type = 'date' name = 'date' id='eventDate1' value='2018-10-22'> <br>
+      Time: <input type = 'time' name = 'time' id='eventTime1'> <br> <br>
+      Title: <input type = 'text' name = 'title' id='eventTitle1' value=''> <br>
+      Description: <input type = 'text' name = 'description1' id='eventDescription' value=''> <br>
+      Tags: <span class="school"><input type = 'radio' name = 'category' value ='school'>School. </span>
+            <span class="fun"><input type = 'radio' name = 'category' value ='fun'>Fun. </span>
+            <span class="family"><input type = 'radio' name = 'category' value ='family'>Family. </span>
+            <span class="other"><input type = 'radio' name = 'category' value ='misc'>Other. </span>
+            <span><input type = 'radio' name = 'category' value ='none'>None. </span>
+            <span><input type = 'radio' name = 'category' value ='' checked="">Same. </span>
+      <br> <br>
+      <input type = 'submit' class='button' value = 'Modify Event' id='modEvent'>
 <script>
 function getEvents(){
   let date = document.getElementById("datetest").value;
@@ -243,6 +258,69 @@ function deleteE(){
         getEvents();
 }
 document.getElementById('del').addEventListener("click",deleteE,false);
+function changeE(){
+ 
+  let meid = document.getElementById("meid").value;
+  if(document.getElementById("eventDate1") != null){
+  let date = document.getElementById("eventDate1").value;
+  }
+  else{
+  let date = null;
+  }
+  if(document.getElementById("eventTime1") != null){
+  let time = document.getElementById("eventTime1").value;
+  }
+  else{
+  let time = null;
+  }
+  if(document.getElementById("eventTitle1") != null){
+  let title = document.getElementById("eventTitle1").value;
+  }
+  else{
+  let title = null;
+  }
+  if(document.getElementById("eventDescription1") != null){
+  let desc = document.getElementById("eventDescription1").value;
+  }
+  else{
+  let desc = null;
+  }
+  let tag;
+  console.log(": " + date);
+  console.log(": " + time);
+  console.log(": " + title);
+  console.log(": " + desc);
+  console.log(": " + tag);
+
+  //get checked tag
+  let tags = document.getElementsByName('category');
+  for(let i = 0, length = tags.length; i < length; i++){
+  	if(tags[i].checked){
+  		tag = tags[i].value;
+  		break;
+  	}
+  }
+  // alert(fdate);
+    if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("elim").innerHTML = this.responseText;
+            }
+        };
+        // xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xmlhttp.open("GET","modifyEvent.php?eid="+meid+"&date="+eventDate1+"&time="+eventTime1+"&title="+eventTitle1+"&description="+eventDescription1+"&tags="+tag,false);
+        // let data = fdate;
+        // alert(data);
+        xmlhttp.send();
+        getEvents();
+}
+document.getElementById('modEvent').addEventListener("click",changeE,false);
 </script>
 </body>
 </html>
