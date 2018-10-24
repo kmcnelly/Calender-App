@@ -117,18 +117,14 @@ function selected(id){
 //
 function getData(){
   let date = document.getElementById("eventDate").value;
-  console.log(date);
   let time = document.getElementById("eventTime").value;
-  console.log(time);
   let title = document.getElementById("eventTitle").value;
-  console.log(title);
   let desc = document.getElementById("eventDescription").value;
-  console.log(desc);
   let tags = document.getElementById("eventTags").value;
-  console.log(tags);
 
   if(date != null && time != null && title != null && tags != null){
   	createEvent(date,time,title,desc,tags);
+  	alert("sent to createEvent")
   }
   else{
   	alert("Please fill in remaining required fields");
