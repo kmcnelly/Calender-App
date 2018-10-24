@@ -60,7 +60,7 @@ while($row = mysqli_fetch_array($result)) {
 
     echo "<td> <span class='delete'>Delete</span></td>";
     echo "<script>
-        $('#eventTable').on('click', '.delete', function () {
+        $('#eventTable').click(function () {
             $(this).closest('tr').remove();
             console.log($row);
         });
