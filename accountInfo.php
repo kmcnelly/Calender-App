@@ -1,5 +1,8 @@
 <?php
-session_start()
+session_start();
+if(!hash_equals($_SESSION['token'], $_POST['token'])){
+    die("Request forgery detected");
+}
 ?>
 <!DOCTYPE html>
 <html lang = "en">
@@ -12,7 +15,6 @@ session_start()
         <input type="submit" class = button value="Return to my calendar">
     </form>
 <input type = "submit" id = "events" value = "See a list of my events">
-<input type = "submit" id = "pwd" value = "Change password">
 <input type = "submit" id = "delete" value = "Delete my account">
 <p id='feedback'></p>
 <script>

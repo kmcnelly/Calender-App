@@ -11,31 +11,34 @@ session_start();
     $stmt->bind_result($d,$tm,$tt,$dc,$tg);
 
     //this checks to see if it's being handed a null, if it is, it uses the old value, otherwise it uses the new value.
-    if($_POST['date'] != null){
+    if($_POST['date'] != ''){
         $date = $_POST['date'];
+        echo $date;
     }
     else{
         $date = $d;
     }
-    if($_POST['title'] != null){
+    if($_POST['title'] != ''){
         $title = $_POST['title'];
+        echo $tt;
     }
     else{
         $title = $tt;
+        echo $tt;
     }
-    if($_POST['time'] != null){
+    if($_POST['time'] != ''){
         $time = $_POST['time'];
     }
     else{
         $time = $tm;
     }
-    if($_POST['description'] != null){
+    if($_POST['description'] != ''){
         $description = $_POST['description'];
     }
     else{
         $description = $dc;
     }
-    if($_POST['tags'] != null){
+    if($_POST['tags'] != ''){
         $tags = $_POST['tags'];
     }
     else{
