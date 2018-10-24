@@ -131,6 +131,13 @@ body {font-family: Verdana, sans-serif;}
     color: white !important
 }
 
+.days li .today {
+    padding: 5px;
+    background: #bbb;
+    color: white !important
+    border-radius: 50%;
+}
+
 /* Add media queries for smaller screens */
 @media screen and (max-width:720px) {
     .weekdays li, .days li {width: 13.1%;}

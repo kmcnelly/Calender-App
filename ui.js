@@ -8,9 +8,12 @@ Code implements Month class created on the website
 const NUM_SLOTS = 42;
 
 let months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
 let currentMonth = new Month(2018, 9); // October 2017
 
+//current date object
+let today = new Date();
 
 // This updateCalendar() function only alerts the dates in the currently specified month.  You need to write
 // it to modify the DOM (optionally using jQuery) to display the days and weeks in the current month.
@@ -48,6 +51,11 @@ function updateCalendar(){
 			//date
 			let dateIn = dateRegex.exec(dString);
 
+			//denotes current date in the calendar
+			if(today.getMonth()== (monthIn-1) && today.getDate()==dateIn){
+				$(document.getElementById(counter)).addClass("today");
+			}
+
 			//get the date of the month
 			if(currentMonth.month == (parseInt(monthIn)-1)){
 				//update days in the month
@@ -70,13 +78,15 @@ function getCurDay(){
 	dIn = new Date();
 	dString = new Date(dIn).toUTCString();
 	dString = dString.split(' ').slice(0, 4).join(' ');
-	document.getElementById("curDate").innerHTML = dString;
+	document.getElementById("curDate").innerHTML = (today.getDay())+", " + (today.getMonth())+"/"+(today.getDate())+"/"+(today.getFullYear());
 }
 
 //change current month to Prev month
 function getPrevMonth(){
 	currentMonth = currentMonth.prevMonth();
 	$(".active").removeClass("active");
+	$(".today").removeClass("today");
+
 	updateCalendar();
 
 }
@@ -85,6 +95,8 @@ function getPrevMonth(){
 function getNextMonth(){
 	currentMonth = currentMonth.nextMonth();
 	$(".active").removeClass("active");
+	$(".today").removeClass("today");
+
 	updateCalendar(); 
 	
 }
