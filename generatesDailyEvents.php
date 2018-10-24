@@ -39,7 +39,7 @@ $stmt = $mysqli->prepare("select time, title, description, tags, eid from events
 echo "<p>Events for ";
 echo $_GET['date'];
 echo "</p>
-<table>
+<table id='eventsday'>
 <tr>
 <th>Time</th>
 <th>Title</th>
@@ -48,6 +48,7 @@ echo "</p>
 <th>Delete?</th>
 <th>Modify?</th>
 </tr>";
+$i = 0;
 while($row = mysqli_fetch_array($result)) {
     echo "<tr>";
     //echo "<td>" . $row['date'] . "</td>";
@@ -55,9 +56,25 @@ while($row = mysqli_fetch_array($result)) {
     echo "<td>" . $row['title'] . "</td>";
     echo "<td>" . $row['description'] . "</td>";
     echo "<td>" . $row['tags'] . "</td>";
-    echo "<td> <input type='submit' value='delete' id = 'del'></td>";
+    echo "<td> <input type='submit' value='delete' id = 'del".$i."'></td>";
     echo "<script>
-    document.get
+    function delete(){
+        if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');
+            }
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById('feedback').innerHTML = this.responseText;
+                }
+            };
+            xmlhttp.open('GET','deleteEvents.php?eid=".$row['eid'].",false);
+            xmlhttp.send();
+    }
+    document.getElementById('del".$i."').addEventListener('click',delete,false);
     </script>";
     echo "<td> <input type='submit' value='modify'></td>";
     echo "</tr>";

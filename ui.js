@@ -139,7 +139,7 @@ function getData(){
   
   if(date != "" && time != "" && title != "" && tags != ""){
   	alert("sent to createEvent");
-  	createEvent(date,time,title,desc,tags);
+  	createEvent(date,time,title,desc,tag);
   }
   else{
   	alert("Please fill in remaining required fields");
