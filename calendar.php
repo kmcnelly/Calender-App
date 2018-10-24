@@ -234,10 +234,10 @@ function getEvents(){
             }
         };
         // xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        xmlhttp.open("POST","generatesDailyEvents.php",false);
-        let data = fdate;
-        alert(data);
-        xmlhttp.send(data);
+        xmlhttp.open("GET","generatesDailyEvents.php?date="+date,false);
+        // let data = fdate;
+        // alert(data);
+        xmlhttp.send();
 }
 document.getElementById('su').addEventListener("click",getEvents,false);
 </script>

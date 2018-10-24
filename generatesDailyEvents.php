@@ -24,42 +24,45 @@ th {text-align: left;}
 
 require 'requireDatabase5.php';
 
-$stmt = $mysqli->prepare("select time, title, description, tags from events where date = ? and uid = ?");
+$stmt = $mysqli->prepare("select time, title, description, tags, eid from events where date = ? and uid = ?");
     if(!$stmt){
         printf("Query Prep Failed: %s\n", $mysqli->error);
         exit;
     }
-    $stmt->bind_param('si', $_POST['date'], $_SESSION['id']);
+    $stmt->bind_param('si', $_GET['date'], $_SESSION['id']);
     $stmt->execute();
 
     $result = $stmt->get_result();
 
-echo $_SESSION['id'];
-echo $_POST['date'];
-// echo "<p>Events for ";
-// echo $_POST['date'];
-// echo "</p>
-// <table>
-// <tr>
-// <th>Time</th>
-// <th>Title</th>
-// <th>Description</th>
-// <th>Tags</th>
-// <th>Delete?</th>
-// <th>Modify?</th>
-// </tr>";
-// while($row = mysqli_fetch_array($result)) {
-//     echo "<tr>";
-//     //echo "<td>" . $row['date'] . "</td>";
-//     echo "<td>" . $row['time'] . "</td>";
-//     echo "<td>" . $row['title'] . "</td>";
-//     echo "<td>" . $row['description'] . "</td>";
-//     echo "<td>" . $row['tags'] . "</td>";
-//     echo "<td> <input type='submit' value='delete'></td>";
-//     echo "<td> <input type='submit' value='modify'></td>";
-//     echo "</tr>";
-// }
-// echo "</table>";
+// echo $_SESSION['id'];
+// echo $_GET['date'];
+echo "<p>Events for ";
+echo $_GET['date'];
+echo "</p>
+<table>
+<tr>
+<th>Time</th>
+<th>Title</th>
+<th>Description</th>
+<th>Tags</th>
+<th>Delete?</th>
+<th>Modify?</th>
+</tr>";
+while($row = mysqli_fetch_array($result)) {
+    echo "<tr>";
+    //echo "<td>" . $row['date'] . "</td>";
+    echo "<td>" . $row['time'] . "</td>";
+    echo "<td>" . $row['title'] . "</td>";
+    echo "<td>" . $row['description'] . "</td>";
+    echo "<td>" . $row['tags'] . "</td>";
+    echo "<td> <input type='submit' value='delete' id = 'del'></td>";
+    echo "<script>
+    document.get
+    </script>";
+    echo "<td> <input type='submit' value='modify'></td>";
+    echo "</tr>";
+}
+echo "</table>";
 $stmt->close();
 ?>
 </body>
