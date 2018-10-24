@@ -233,7 +233,7 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
       Delete an event:<input type = 'number' id = 'eid'>
       <input type = 'submit' id = 'del' value = 'Delete'>
       <script>
-      function getEvents(){
+      function deleteEvent(){
         let eid = document.getElementById("eid").value;
         // alert(fdate);
           if (window.XMLHttpRequest) {
@@ -254,7 +254,7 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
               // alert(data);
               xmlhttp.send();
       }
-      document.getElementById('del').addEventListener("click",getEvents,false);
+      document.getElementById('del').addEventListener("click",deleteEvent,false);
       </script>
     </div>
     
@@ -390,6 +390,7 @@ function changeE(){
   tag = null;
   }
   let data = new FormData();
+    data.append('eid', meid);
     data.append('date', date);
     data.append('time', time);
     data.append('title', title);

@@ -1,7 +1,7 @@
 <?php
 session_start();
     require "requireDatabase5.php";
-    $stmt = $mysqli->prepare("select date, time, title, description, tags from events where eid = ? and uid = ? order by time");
+    $stmt = $mysqli->prepare("select date, time, title, description, tags from events where eid = ? and uid = ?");
     if(!$stmt){
         printf("Query Prep Failed: %s\n", $mysqli->error);
         exit;
@@ -9,11 +9,17 @@ session_start();
     $stmt->bind_param('ii', $_POST['eid'], $_SESSION['id']);
     $stmt->execute();
     $stmt->bind_result($d,$tm,$tt,$dc,$tg);
-
+    echo $_POST['eid'];
+    echo $_SESSION['id'];
+    echo $d;
+    echo $tm;
+    echo $tt;
+    echo $dc;
+    echo $tg;
     //this checks to see if it's being handed a null, if it is, it uses the old value, otherwise it uses the new value.
     if($_POST['date'] != ''){
         $date = $_POST['date'];
-        echo $date;
+        //echo $date;
     }
     else{
         $date = $d;
@@ -50,8 +56,8 @@ session_start();
                                                  title,
                                                  description,
                                                  tags)
-                                            values (?,?,?,?,?,?) 
-                                                where eid=?");
+                                                 values (?,?,?,?,?) 
+                                                 where eid=?");
         if(!$stmt){
             printf("Query Prep Failed8: %s\n", $mysqli->error);
             exit;
