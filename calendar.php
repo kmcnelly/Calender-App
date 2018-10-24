@@ -259,7 +259,7 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
 <input type = 'submit' id = 'del' value = 'Delete'>
 <p id='daily'></p>
 <p id='elim'></p>
-
+<p id='mod'></p>
 <p>Modify an Event:</p>
 Event ID: <input type = 'number' id = 'meid'>
 Date: <input type = 'date' name = 'date' id='eventDate1' value='2018-10-22'> <br>
@@ -274,6 +274,7 @@ Date: <input type = 'date' name = 'date' id='eventDate1' value='2018-10-22'> <br
             <span><input type = 'radio' name = 'category1' value ='' checked="">Same. </span>
       <br> <br>
       <input type = 'button' class='button' value = 'Modify Event' id='modEvent'>
+
 <script>
 function getEvents(){
   let date = document.getElementById("datetest").value;
@@ -390,7 +391,7 @@ function changeE(){
         }
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("elim").innerHTML = this.responseText;
+                document.getElementById("mod").innerHTML = this.responseText;
             }
         };
         // xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
