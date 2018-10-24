@@ -31,12 +31,11 @@ body {font-family: Verdana, sans-serif;}
 
 /*Delete row button*/
 .delete{
-    padding: 7px;
     background: #1abc9c;
     color: white;
     text-decoration: none;
-    position: absolute;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 /*Submit Button*/
