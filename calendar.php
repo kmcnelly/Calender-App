@@ -23,19 +23,22 @@ session_start();
 <!-- User php -->
 <script>
 function writeUser(){
-  if(<?php echo json_encode(!isset($_SESSION['username'])); ?>){
+ <?php if (!isset($_SESSION['username'])){
+
+?>
   let username = 'Guest';
     document.getElementById("acct").innerHTML = "Have an account? Login below:";
     document.getElementById("guest").innerHTML = "<form action = 'loggingIn.php' method = 'POST'> Username: <input type='text' name='user'> <br> Password: <input type='password' name='pass'> <br><input type = 'submit' id = 'info' value = 'Log In'> </form>";
     document.getElementById("creation").innerHTML = "New here? Make an account";
     document.getElementById("new").innerHTML = "<form action ='createuser.php' method = 'POST'>Username: <input type='text' name='user'> <br> Password: <input type='password' name='pass'> <br> <input type = 'submit' id = 'ca' value = 'Create Account'> </form>";
-  }
-  else{
+  <?php }else{
+    ?>
   let username = <?php echo json_encode($_SESSION['username']); ?>;
   let newthing = "Welcome, " + username; 
   document.getElementById('currentuser').innerHTML = newthing;
   document.getElementById('guest').innerHTML = "<form action = 'accountInfo.php' method = 'POST'> <input type='hidden' name='token' value='<?php echo $_SESSION['token'];?>' /><input type = 'submit' id = 'info' value = 'My Account'> </form> <form action ='logout.php'> <input type = 'submit' id = 'logout' value = 'Logout'> </form>";
-}
+  <?php
+} ?>
 }
 document.addEventListener("DOMContentLoaded", writeUser, false);
 </script>
