@@ -189,9 +189,9 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
       </form>
     </div>
     <br> <br>
-    <div>
 
 <!-- Return the events in a given Date -->
+    <div>
       <input type = 'date' id ='datetest'>
 
       <input type = 'submit' id='su'>
@@ -273,6 +273,112 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
       </script>
     </div>
     
+<!-- Modify an event given the eventID -->
+    <div>
+      <input type = 'date' id ='datetest'>
+      <input type = 'submit' id='su'>
+      <input type = 'number' id = 'eid'>
+      <input type = 'submit' id = 'del' value = 'Delete'>
+      <p id='daily'></p>
+      <p id='elim'></p>
+
+      <p>Modify an Event:</p>
+      Event ID: <input type = 'number' id = 'meid'>
+      Date: <input type = 'date' name = 'date' id='eventDate1' value='2018-10-22'> <br>
+            Time: <input type = 'time' name = 'time' id='eventTime1'> <br> <br>
+            Title: <input type = 'text' name = 'title' id='eventTitle1' value=''> <br>
+            Description: <input type = 'text' name = 'description' id='eventDescription1' value=''> <br>
+            Tags: <span class="school"><input type = 'radio' name = 'category1' value ='school'>School. </span>
+                  <span class="fun"><input type = 'radio' name = 'category1' value ='fun'>Fun. </span>
+                  <span class="family"><input type = 'radio' name = 'category1' value ='family'>Family. </span>
+                  <span class="other"><input type = 'radio' name = 'category1' value ='misc'>Other. </span>
+                  <span><input type = 'radio' name = 'category1' value ='none'>None. </span>
+                  <span><input type = 'radio' name = 'category1' value ='' checked="">Same. </span>
+            <br> <br>
+            <input type = 'button' class='button' value = 'Modify Event' id='modEvent'>
+      <script>
+
+      function changeE(){
+        let date;
+        let time;
+        let title;
+        let desc;
+        let meid = document.getElementById("meid").value;
+        if(document.getElementById("eventDate1") != null){
+        date = document.getElementById("eventDate1").value;
+        }
+        else{
+        date = null;
+        }
+        if(document.getElementById("eventTime1") != null){
+        time = document.getElementById("eventTime1").value;
+        }
+        else{
+        time = null;
+        }
+        if(document.getElementById("eventTitle1") != null){
+        title = document.getElementById("eventTitle1").value;
+        }
+        else{
+        title = null;
+        }
+        if(document.getElementById("eventDescription1") != null){
+        desc = document.getElementById("eventDescription1").value;
+        }
+        else{
+        desc = null;
+        }
+        let tag;
+        console.log(": " + date);
+        console.log(": " + time);
+        console.log(": " + title);
+        console.log(": " + desc);
+        console.log(": " + tag);
+
+        //get checked tag
+        let tags = document.getElementsByName('category1');
+        for(let i = 0, length = tags.length; i < length; i++){
+          if(tags[i].checked){
+            tag = tags[i].value;
+            break;
+          }
+        }
+        if(tag != undefined){
+        tag = tag;
+        }
+        else{
+        tag = null;
+        }
+        let data = new FormData();
+          data.append('eid', meid);
+          data.append('date', date);
+          data.append('time', time);
+          data.append('title', title);
+          data.append('description', desc);
+          data.append('tags', tag);
+        // alert(fdate);
+          if (window.XMLHttpRequest) {
+                  // code for IE7+, Firefox, Chrome, Opera, Safari
+                  xmlhttp = new XMLHttpRequest();
+              } else {
+                  // code for IE6, IE5
+                  xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+              }
+              xmlhttp.onreadystatechange = function() {
+                  if (this.readyState == 4 && this.status == 200) {
+                      document.getElementById("elim").innerHTML = this.responseText;
+                  }
+              };
+              // xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+              xmlhttp.open("POST","modifyEvent.php",false);
+              // let data = fdate;
+              // alert(data);
+              xmlhttp.send(data);
+              // modifyEvents();
+      }
+      document.getElementById('modEvent').addEventListener("click",changeE,false);
+      </script>
+    </div>
 <!-- Close popup window -->
     <a id="button-popup-close">Close</a>
 
@@ -283,108 +389,5 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
 <script src="calendar.min.js" type="text/javascript"></script>
 <script src="createEvent.js" type="text/javascript"></script>
 
-<input type = 'date' id ='datetest'>
-<input type = 'submit' id='su'>
-<input type = 'number' id = 'eid'>
-<input type = 'submit' id = 'del' value = 'Delete'>
-<p id='daily'></p>
-<p id='elim'></p>
-
-<p>Modify an Event:</p>
-Event ID: <input type = 'number' id = 'meid'>
-Date: <input type = 'date' name = 'date' id='eventDate1' value='2018-10-22'> <br>
-      Time: <input type = 'time' name = 'time' id='eventTime1'> <br> <br>
-      Title: <input type = 'text' name = 'title' id='eventTitle1' value=''> <br>
-      Description: <input type = 'text' name = 'description' id='eventDescription1' value=''> <br>
-      Tags: <span class="school"><input type = 'radio' name = 'category1' value ='school'>School. </span>
-            <span class="fun"><input type = 'radio' name = 'category1' value ='fun'>Fun. </span>
-            <span class="family"><input type = 'radio' name = 'category1' value ='family'>Family. </span>
-            <span class="other"><input type = 'radio' name = 'category1' value ='misc'>Other. </span>
-            <span><input type = 'radio' name = 'category1' value ='none'>None. </span>
-            <span><input type = 'radio' name = 'category1' value ='' checked="">Same. </span>
-      <br> <br>
-      <input type = 'button' class='button' value = 'Modify Event' id='modEvent'>
-<script>
-
-function changeE(){
-  let date;
-  let time;
-  let title;
-  let desc;
-  let meid = document.getElementById("meid").value;
-  if(document.getElementById("eventDate1") != null){
-  date = document.getElementById("eventDate1").value;
-  }
-  else{
-  date = null;
-  }
-  if(document.getElementById("eventTime1") != null){
-  time = document.getElementById("eventTime1").value;
-  }
-  else{
-  time = null;
-  }
-  if(document.getElementById("eventTitle1") != null){
-  title = document.getElementById("eventTitle1").value;
-  }
-  else{
-  title = null;
-  }
-  if(document.getElementById("eventDescription1") != null){
-  desc = document.getElementById("eventDescription1").value;
-  }
-  else{
-  desc = null;
-  }
-  let tag;
-  console.log(": " + date);
-  console.log(": " + time);
-  console.log(": " + title);
-  console.log(": " + desc);
-  console.log(": " + tag);
-
-  //get checked tag
-  let tags = document.getElementsByName('category1');
-  for(let i = 0, length = tags.length; i < length; i++){
-  	if(tags[i].checked){
-  		tag = tags[i].value;
-  		break;
-  	}
-  }
-  if(tag != undefined){
-  tag = tag;
-  }
-  else{
-  tag = null;
-  }
-  let data = new FormData();
-    data.append('eid', meid);
-    data.append('date', date);
-    data.append('time', time);
-    data.append('title', title);
-    data.append('description', desc);
-    data.append('tags', tag);
-  // alert(fdate);
-    if (window.XMLHttpRequest) {
-            // code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest();
-        } else {
-            // code for IE6, IE5
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("elim").innerHTML = this.responseText;
-            }
-        };
-        // xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        xmlhttp.open("POST","modifyEvent.php",false);
-        // let data = fdate;
-        // alert(data);
-        xmlhttp.send(data);
-        // modifyEvents();
-}
-document.getElementById('modEvent').addEventListener("click",changeE,false);
-</script>
 </body>
 </html>
