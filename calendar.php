@@ -187,6 +187,8 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
       <div class="window-popup" >
   <div class="wp-content">
     <h1 id="selectedDate">-</h1>
+
+    <div>
     <p>Add Event:</p>
       <form id='creation' action="#">
         Date: <input type = 'date' name = 'date' id='eventDate' value='2018-10-22' required> <br>
@@ -201,9 +203,9 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
         <br> <br>
         <input type = 'submit' class='button' value = 'Create New Event' id='addEvent'>
       </form>
+    </div>
 
-
-
+    <div>
       <input type = 'date' id ='datetest'>
       <input type = 'submit' id='su'>
       <p id='daily'></p>
@@ -259,7 +261,8 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
       }
       document.getElementById('del').addEventListener("click",getEvents,false);
       </script>
-
+    </div>
+    
     <a id="button-popup-close">Close</a>
 
    </div> 

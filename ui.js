@@ -108,6 +108,7 @@ function selected(id){
 
 	let date = document.getElementById(id).value;
     document.getElementById("eventDate").value = date;
+    document.getElementById("datetest").value = date;
 
     document.getElementById("selectedDate").innerHTML = date + ": ";
 
