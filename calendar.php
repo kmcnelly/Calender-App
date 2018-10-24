@@ -198,8 +198,8 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
         Tags: <span class="school"><input type = 'radio' name = 'category' value ='school'>School. </span>
               <span class="fun"><input type = 'radio' name = 'category' value ='fun'>Fun. </span>
               <span class="family"><input type = 'radio' name = 'category' value ='family'>Family. </span>
-              <span class="other"><input type = 'radio' name = 'category' value ='misc'>Other. </span>
-              <span><input type = 'radio' name = 'category' value ='' checked="">None. </span>
+              <span class="other"><input type = 'radio' name = 'category' value ='other'>Other. </span>
+              <span><input type = 'radio' name = 'category' value ='none' checked="">None. </span>
         <br> <br>
         <input type = 'submit' class='button' value = 'Create New Event' id='addEvent'>
       </form>
@@ -235,7 +235,7 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
       }
       document.getElementById('su').addEventListener("click",getEvents,false);
       </script>
-      <input type = 'number' id = 'eid'>
+      Delete an event:<input type = 'number' id = 'eid'>
       <input type = 'submit' id = 'del' value = 'Delete'>
       <script>
       function getEvents(){
