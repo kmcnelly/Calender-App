@@ -57,15 +57,6 @@ while($row = mysqli_fetch_array($result)) {
     echo "<td>" . $row['description'] . "</td>";
     echo "<td>" . $row['tags'] . "</td>";
     echo "<td>" . $row['eid'] . "</td";
-    // echo "<td> <span class='delete'>Delete</span></td>";
-    // echo "<script>
-    //     $('#eventTable').click(function () {
-    //         $(this).closest('tr').remove();
-    //         console.log($row);
-    //     });
-
-    // </script>";
-    // echo "<td> <input type='submit' value='modify'></td>";
     echo "</tr>";
 }
 echo "</table>";

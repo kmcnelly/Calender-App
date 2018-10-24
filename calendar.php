@@ -171,7 +171,7 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
     <!-- Display selected Date as header -->
     <h1><span id="selectedDate">Date: </span></h1>
 
-<!-- Add event with inputed information -->
+<!-- ADD EVENTS Add event with inputed information -->
     <div>
     <p>Add Event:</p>
       <form id='creation'>
@@ -190,7 +190,7 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
     </div>
     <br> <br>
 
-<!-- Return the events in a given Date -->
+<!-- GET EVENTS Return the events in a given Date -->
     <div>
       <input type = 'date' id ='datetest'>
 
@@ -244,7 +244,7 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
       document.getElementById('su').addEventListener("click",getEvents,false);
       </script>
 
-<!-- Delete an event given the eventID -->
+<!-- DELETE EVENTS Deletes an event given the eventID -->
       Delete an event:<input type = 'number' id = 'eid'>
       <input type = 'submit' id = 'del' value = 'Delete'>
       <script>
@@ -273,7 +273,7 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
       </script>
     </div>
     
-<!-- Modify an event given the eventID -->
+<!-- MODIFY EVENTS Modify an event given the eventID -->
     <div>
       <input type = 'date' id ='datetest'>
       <input type = 'submit' id='su'>
@@ -349,6 +349,7 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
         else{
         tag = null;
         }
+
         let data = new FormData();
           data.append('eid', meid);
           data.append('date', date);
@@ -364,17 +365,16 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
                   // code for IE6, IE5
                   xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
               }
+              //call
               xmlhttp.onreadystatechange = function() {
                   if (this.readyState == 4 && this.status == 200) {
                       document.getElementById("elim").innerHTML = this.responseText;
                   }
               };
-              // xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
               xmlhttp.open("POST","modifyEvent.php",false);
-              // let data = fdate;
-              // alert(data);
+
               xmlhttp.send(data);
-              // modifyEvents();
       }
       document.getElementById('modEvent').addEventListener("click",changeE,false);
       </script>
