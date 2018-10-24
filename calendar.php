@@ -1,10 +1,10 @@
-<?php
-session_start();
-?>
+
 <!DOCTYPE html>
 <html>
 <head>
-
+<?php
+session_start();
+?>
   <link rel="stylesheet" href="style.css">
 
   <!-- JQuery -->
