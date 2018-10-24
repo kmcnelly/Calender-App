@@ -247,7 +247,7 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
       <br><br>
 <!-- DELETE EVENTS Deletes an event given the eventID -->
       <p>Delete an Event:</p>
-      <input type = 'number' id = 'eid'>
+      Event ID: <input type = 'number' id = 'eid'>
       <input type = 'submit' id = 'del' value = 'Delete'>
       <script>
       function deleteEvent(){

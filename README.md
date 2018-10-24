@@ -4,7 +4,7 @@ Alex Chow - 457332
 Kenneth McNelly – 457250
 
 Link:
-
+http://www.alexchow.me/module5group/calendar.php?
 
 
 WARNING:
@@ -15,6 +15,11 @@ As a result, Please use Chrome. Thank you very much
 Important:
 Trying to create, modify or delete events as a guest will simply just ignore your request.
 
+To Get the Events:
+-User must submit the date 
+
+To Modify, or Delete an event:
+-User must get the eventID by using the Get Event feature 
 Citations:
 -Calendar Css style sheet borrowed from w3school.com tutorial:
 Css converts the list of dates acting as slots on the calendar into the rows and columns seen on a normal calendar
