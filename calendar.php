@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
 
 <!-- ADD EVENTS Add event with inputed information -->
     <div>
-    <p>Add Event:</p>
+    <p>Add an Event:</p>
       <form id='creation'>
         Date: <input type = 'date' name = 'date' id='eventDate' value='2018-10-22' required> <br>
         Time: <input type = 'time' name = 'time' id='eventTime' required> <br> <br>
@@ -191,6 +191,7 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
 
 <!-- GET EVENTS Return the events in a given Date -->
     <div>
+      <p>Get an Event:</p>
       <input type = 'date' id ='datetest'>
 
       <input type = 'submit' id='su'>
@@ -243,8 +244,10 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
       document.getElementById('su').addEventListener("click",getEvents,false);
       </script>
 
+      <br><br>
 <!-- DELETE EVENTS Deletes an event given the eventID -->
-      Delete an event:<input type = 'number' id = 'eid'>
+      <p>Delete an Event:</p>
+      <input type = 'number' id = 'eid'>
       <input type = 'submit' id = 'del' value = 'Delete'>
       <script>
       function deleteEvent(){
@@ -272,6 +275,7 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
       </script>
     </div>
     
+    <br>
 <!-- MODIFY EVENTS Modify an event given the eventID -->
     <div>
       <input type = 'date' id ='datetest'>
