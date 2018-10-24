@@ -213,5 +213,33 @@ function makeNewEvent(event){
 }
 document.getElementById('creation').addEventListener("click",makeNewEvent,false);
 </script>
+<input type = 'date' id ='datetest'>
+<input type = 'submit' id='su'>
+<p id='daily'></p>
+<script>
+function getEvents(){
+  let date = document.getElementById("datetest").value;
+  let fdate = "date="+date;
+  // alert(fdate);
+    if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("daily").innerHTML = this.responseText;
+            }
+        };
+        // xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xmlhttp.open("POST","generatesDailyEvents.php",false);
+        let data = fdate;
+        alert(data);
+        xmlhttp.send(data);
+}
+document.getElementById('su').addEventListener("click",getEvents,false);
+</script>
 </body>
 </html>
