@@ -225,10 +225,10 @@ document.addEventListener("DOMContentLoaded", writeUser, false);
                 xmlhttp.open("GET","generatesDailyEvents.php?date="+date,false);
               }
               else{
-                let tags = document.getElementsByName('category');
+                let tags = document.getElementsByName('filter');
                 for(let i = 0, length = tags.length; i < length; i++){
                   if(tags[i].checked){
-                    tag = tags[i].value;
+                    let tag = tags[i].value;
 
                     xmlhttp.open("GET","pullByTag.php?date="+date+"&tag="+tag,false);
                     break;
