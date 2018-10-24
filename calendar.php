@@ -35,7 +35,7 @@ function writeUser(){
   else{
   let newthing = "Welcome, " + username; 
   document.getElementById('currentuser').innerHTML = newthing;
-  document.getElementById('guest').innerHTML = "<form action = 'accountInfo.php'> <input type = 'submit' id = 'info' value = 'My Account'> </form> <form action ='logout.php'> <input type = 'submit' id = 'logout' value = 'Logout'> </form>";
+  document.getElementById('guest').innerHTML = "<form action = 'accountInfo.php' method = 'POST'> <input type='hidden' name='token' value='<?php echo $_SESSION['token'];?>' /><input type = 'submit' id = 'info' value = 'My Account'> </form> <form action ='logout.php'> <input type = 'submit' id = 'logout' value = 'Logout'> </form>";
 }
 }
 document.addEventListener("DOMContentLoaded", writeUser, false);
