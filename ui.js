@@ -120,11 +120,21 @@ function getData(){
   let time = document.getElementById("eventTime").value;
   let title = document.getElementById("eventTitle").value;
   let desc = document.getElementById("eventDescription").value;
-  let tags = document.getElementById("eventTags").value;
+  let tag;
 
-  if(date != null && time != null && title != null && tags != null){
+  //get checked tag
+  let tags = document.getElementsByName('category');
+  for(let i = 0, length = tags.length; i < length; i++){
+  	if(tags[i].checked){
+  		tag = tags[i].value;
+  		break;
+  	}
+  }
+
+
+  if(date != "" && time != "" && title != "" && tags != ""){
+  	alert("sent to createEvent");
   	createEvent(date,time,title,desc,tags);
-  	alert("sent to createEvent")
   }
   else{
   	alert("Please fill in remaining required fields");
