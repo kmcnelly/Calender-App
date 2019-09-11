@@ -7,8 +7,9 @@ Link:
 http://www.alexchow.me/module5group/calendar.php?
 
 Example Login:
-username:alex
-password:fishy
+username: alex
+
+password: fishy
 
 WARNING:
 Known issue that calendar does not work in FireFox, due to an issue with Mozillas Regex Handling
