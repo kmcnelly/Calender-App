@@ -1,6 +1,7 @@
 Calendar
 
-Alex Chow -
+Alex Chow
+
 Kenneth McNelly
 
 Link:  http://www.alexchow.me/module5group/calendar.php?
