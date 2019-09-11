@@ -7,8 +7,8 @@ Link:
 http://www.alexchow.me/module5group/calendar.php?
 
 Example Login:
-username: alex
-password: fishy
+username:alex
+password:fishy
 
 WARNING:
 Known issue that calendar does not work in FireFox, due to an issue with Mozillas Regex Handling
@@ -26,7 +26,6 @@ To Modify, or Delete an event:
 -Re Get the events of the day to see update
 
 Citations:
-
 -Calendar Css style sheet borrowed from w3school.com tutorial:
 Css converts the list of dates acting as slots on the calendar into the rows and columns seen on a normal calendar
 https://www.w3schools.com/howto/howto_css_calendar.asp
